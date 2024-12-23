@@ -1,0 +1,107 @@
+[
+  {
+    "description": "    Through this feature Admin should be able to login into opencart Website and enter the customer details",
+    "keyword": "Feature",
+    "name": "Add a new customer",
+    "line": 1,
+    "id": "add-a-new-customer",
+    "tags": [],
+    "uri": "customer.feature",
+    "elements": [
+      {
+        "id": "add-a-new-customer;add-a-new-customer-to-the-system",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Add a new customer to the system",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I am logged into the OpenCart admin panel",
+            "result": {
+              "status": "undefined",
+              "duration": 80000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I navigate to the Customers section",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click on the \"Add New\" button",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "First Name",
+                      "John"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Last Name",
+                      "Doe"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Email",
+                      "john.doe@example.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Telephone",
+                      "123456789"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I fill in the customer details",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I save the customer details",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see the new customer in the customer list",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

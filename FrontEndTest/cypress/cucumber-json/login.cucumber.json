@@ -23,7 +23,7 @@
             "name": "Visit opencart Website",
             "result": {
               "status": "passed",
-              "duration": 1963000000
+              "duration": 2346000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "User provide username",
             "result": {
               "status": "passed",
-              "duration": 360000000
+              "duration": 322000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "Click on Login button to log in into the opencart Website",
             "result": {
               "status": "passed",
-              "duration": 100000000
+              "duration": 116000000
             }
           }
         ]
