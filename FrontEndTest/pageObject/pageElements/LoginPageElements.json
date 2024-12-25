@@ -1,7 +1,0 @@
-{
-    "LoginPageLocators":{
-    "username_text" : "#input-username",
-    "password_text":"#input-password",
-    "login_button" : ".btn"
-    }
-}

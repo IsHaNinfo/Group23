@@ -1,0 +1,21 @@
+{
+    "LoginPageLocators":{
+    "username_text" :"[data-test='username']",
+    "password_text":"[data-test='password']",
+    "login_button" : "[data-test='login-button']"
+    },
+    "InventoryPageLocators":{
+      "firstInventoryItem": "[data-test='inventory-list'] > :nth-child(1)",
+      "addToCartButton": "[data-test='add-to-cart-sauce-labs-backpack']",
+      "removeButton": "[data-test='remove-sauce-labs-backpack']",
+      "cartIcon": "[data-test='shopping-cart-link']",
+      "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']"
+    },
+    "cartPage": {
+        "checkoutButton": "[data-test='checkout']",
+        "cartItem" : "[data-test='inventory-item']"
+      },
+      "itemPage":{
+        "itemName":"[data-test='inventory-item-name']"
+      }
+}
