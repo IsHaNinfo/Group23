@@ -74,6 +74,10 @@ class Inventory {
     return this;
   }
 
+  verifyNavigationToDashboard() {
+    cy.url().should("include", urls.inventory);
+    return this;
+  }
 }
 
 
