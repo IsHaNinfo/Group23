@@ -16,9 +16,12 @@ When("User provide password", function () {
   Page_Elements.pass(user.password);
 });
 
-Then("Click on Login button to log in into the sourceDemo Website", function () {
-  Page_Elements.LoginButton("");
-});
+Then(
+  "Click on Login button to log in into the sourceDemo Website",
+  function () {
+    Page_Elements.LoginButton("");
+  }
+);
 
 And("Verify that the user is redirected to the inventory page", function () {
   Page_Elements.verifyInventoryPage();
