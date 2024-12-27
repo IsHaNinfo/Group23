@@ -19,7 +19,7 @@ class Books {
     }
     
     deleteBook(bookId) {
-        cy.request('DELETE', baseUrl + '/api/books/' + bookId);
+        return cy.request('DELETE', baseUrl + '/api/books/' + bookId);
     }
     }
 
