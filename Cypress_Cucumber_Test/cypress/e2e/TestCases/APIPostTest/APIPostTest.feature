@@ -9,3 +9,5 @@ Feature: API Testing to Insert Books Data
       | 1     | "Sample Book"       | "Anuja"  |
     Then the insert response status should be 201
     And the response should contain the book data with title "Sample Book" and author "Anuja"
+
+
