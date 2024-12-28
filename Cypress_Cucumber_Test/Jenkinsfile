@@ -1,39 +1,54 @@
-pipeline{
+pipeline {
     agent any
-   
-   parameters {
-    string(name:'SPEC',defaultValue:'cypress/e2e/TestCases',description:"Enter the script path that you want to execute")
-    choice(name:"BROWSER",choices:['chrome','edge','firefox'],description:"Choice the browser where execute")
 
-   }
-   options{
-    ansiColor('xterm')
-   }
+    parameters {
+        string(name: 'SPEC', defaultValue: 'cypress/e2e/TestCases', description: "Enter the script path that you want to execute")
+        choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox'], description: "Choose the browser to execute")
+    }
 
-   stages{
-    stage('Building'){
-        steps{
-        echo "Building the application"
+    options {
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage('Building') {
+            steps {
+                echo "Building the application"
+            }
+        }
+
+        stage('Testing') {
+            steps {
+                script {
+                    echo "Installing dependencies..."
+                    bat "npm install"
+
+                    echo "Running Cypress tests..."
+                    bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+                }
+            }
+        }
+
+        stage('Deploying') {
+            steps {
+                echo "Deploying the application"
+            }
         }
     }
 
-    stage('Testing'){
-        steps{
-        bat "npm i"
-        bat "npx cypress run --browser ${BROWSER} --spec {SPEC}"
+    post {
+        always {
+            echo "Generating Cypress report..."
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'cypress/report',
+                reportFiles: 'index.html',
+                reportName: 'HTML Report',
+                reportTitles: '',
+                useWrapperFileDirectly: true
+            ])
         }
-
     }
-
-    stage('Deploying'){
-        steps{
-        echo "Deploy the application"
-        }
-    }
-   }
-   post{
-    always{
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-    }
-   }
 }
