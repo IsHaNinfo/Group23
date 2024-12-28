@@ -7,10 +7,10 @@ class Login {
      * @param {string} password - The password for login
      * @returns {Cypress.Chainable} - The response of the POST request
      */
-    loginUser(username, password) {
+    loginAuth(username, password) {
       return cy.request({
         method: 'OPTIONS',
-        url: baseUrl, // Replace with your actual login API endpoint
+        url: baseUrl, 
         auth: {
             username: username,
             password: password,
