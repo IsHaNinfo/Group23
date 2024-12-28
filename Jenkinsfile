@@ -57,16 +57,7 @@ pipeline {
 
                 // Ensure the report directory exists
                 if (fileExists(reportDir)) {
-                    publishHTML([
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: reportDir,
-                        reportFiles: 'index.html',
-                        reportName: 'HTML Report',
-                        reportTitles: '',
-                        useWrapperFileDirectly: true
-                    ])
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                 } else {
                     echo "Cypress report directory does not exist."
                 }
