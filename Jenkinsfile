@@ -20,16 +20,21 @@ pipeline {
         stage('Testing') {
             steps {
                 script {
-                    echo "Installing dependencies..."
-                    dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Change to the project directory
-                        bat "npm install"
-                    }
+            echo "Installing dependencies..."
+            dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Change to the project directory
+                bat "npm install"
+            }
 
-                    echo "Running Cypress tests..."
-                    dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Ensure tests run from the correct directory
-                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
-                    }
-                }
+            echo "Installing Cypress binary..."
+            dir('H:\\Group23\\Cypress_Cucumber_Test') {
+                bat "npx cypress install"
+            }
+
+            echo "Running Cypress tests..."
+            dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Ensure tests run from the correct directory
+                bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+            }
+        }
             }
         }
 
