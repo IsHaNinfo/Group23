@@ -21,10 +21,14 @@ pipeline {
             steps {
                 script {
                     echo "Installing dependencies..."
-                    bat "cd H:\\Group23\\Cypress_Cucumber_Test\\&& npm install"  // Change to project directory and install dependencies
+                    dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Change to the project directory
+                        bat "npm install"
+                    }
 
                     echo "Running Cypress tests..."
-                    bat "cd H:\\Group23\\Cypress_Cucumber_Test\\&& npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+                    dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Ensure tests run from the correct directory
+                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+                    }
                 }
             }
         }
@@ -40,7 +44,7 @@ pipeline {
         always {
             echo "Generating Cypress report..."
             script {
-                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress\\report'  // Ensure this path is correct for your Cypress report
+                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress\\report'
                 if (fileExists(reportDir)) {
                     publishHTML([
                         allowMissing: false,
