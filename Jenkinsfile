@@ -6,8 +6,8 @@ pipeline {
         choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox'], description: "Choose the browser to execute")
     }
 
-    options {
-        ansiColor('xterm')
+    environment {
+        TERM = 'xterm'
     }
 
     stages {
@@ -39,15 +39,15 @@ pipeline {
     post {
         always {
             echo "Generating Cypress report..."
-            publishHTML([
-                allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: true,
-                reportDir: 'cypress/report',
-                reportFiles: 'index.html',
-                reportName: 'HTML Report',
-                reportTitles: '',
-                useWrapperFileDirectly: true
+            publishHTML([ 
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: true, 
+                reportDir: 'cypress/report', 
+                reportFiles: 'index.html', 
+                reportName: 'HTML Report', 
+                reportTitles: '', 
+                useWrapperFileDirectly: true 
             ])
         }
     }
