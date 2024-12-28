@@ -21,10 +21,10 @@ pipeline {
             steps {
                 script {
                     echo "Installing dependencies..."
-                    bat "npm install"
+                    bat "cd H:\\Group23\\Cypress_Cucumber_Test\\&& npm install"  // Change to project directory and install dependencies
 
                     echo "Running Cypress tests..."
-                    bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+                    bat "cd H:\\Group23\\Cypress_Cucumber_Test\\&& npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
                 }
             }
         }
@@ -39,16 +39,23 @@ pipeline {
     post {
         always {
             echo "Generating Cypress report..."
-            publishHTML([ 
-                allowMissing: false, 
-                alwaysLinkToLastBuild: false, 
-                keepAll: true, 
-                reportDir: 'cypress/report', 
-                reportFiles: 'index.html', 
-                reportName: 'HTML Report', 
-                reportTitles: '', 
-                useWrapperFileDirectly: true 
-            ])
+            script {
+                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress\\report'  // Ensure this path is correct for your Cypress report
+                if (fileExists(reportDir)) {
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: reportDir,
+                        reportFiles: 'index.html',
+                        reportName: 'HTML Report',
+                        reportTitles: '',
+                        useWrapperFileDirectly: true
+                    ])
+                } else {
+                    echo "Cypress report directory does not exist."
+                }
+            }
         }
     }
 }
