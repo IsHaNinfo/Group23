@@ -69,6 +69,15 @@ class Inventory {
     return this;
   }
 
+  clickFirstInventoryItemImage() {
+    cy.get(pageElementLocators.InventoryPageLocators.firstInventoryItem)
+      .first()
+      .within(() => {
+        cy.get(pageElementLocators.InventoryPageLocators.itemImageLink).click(); // Selector for the image
+      });
+    return this;
+  }
+
   navigateInventoryItemPage() {
     cy.url().should("include", urls.inventory_item);
     return this;
