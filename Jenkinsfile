@@ -49,18 +49,9 @@ pipeline {
         always {
             echo "Generating Cypress report..."
             script {
-                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress\\report'
+                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress'
                 if (fileExists(reportDir)) {
-                    publishHTML([
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: reportDir,
-                        reportFiles: 'index.html',
-                        reportName: 'HTML Report',
-                        reportTitles: '',
-                        useWrapperFileDirectly: true
-                    ])
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                 } else {
                     echo "Cypress report directory does not exist."
                 }
