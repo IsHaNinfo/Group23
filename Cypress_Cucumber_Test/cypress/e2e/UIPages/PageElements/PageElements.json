@@ -20,7 +20,8 @@
     },
     "itemPage":{
       "itemName":"[data-test='inventory-item-name']",
-      "itemImage":"[data-test='item-sauce-labs-backpack-img']"
+      "itemImage":"[data-test='item-sauce-labs-backpack-img']",
+      "backToProduct":"[data-test='back-to-products']"
     },
     "userInformationPage":{
       "firstName":"[data-test='firstName']",
