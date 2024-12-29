@@ -16,7 +16,8 @@
       "checkoutButton": "[data-test='checkout']",
       "cartItem" : "[data-test='inventory-item']",
       "removeBtnInCart":"[data-test='remove-sauce-labs-backpack']",
-      "continueShoppingButton":"[data-test='continue-shopping']"
+      "continueShoppingButton":"[data-test='continue-shopping']",
+      "checkoutOverviewCancelButton":"[data-test='cancel']"
     },
     "itemPage":{
       "itemName":"[data-test='inventory-item-name']",
