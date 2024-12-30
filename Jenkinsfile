@@ -38,6 +38,7 @@ pipeline {
                         // Catch test failures and allow the pipeline to continue
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                             bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
+
                         }
                     }
                 }
