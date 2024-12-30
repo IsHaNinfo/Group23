@@ -24,7 +24,6 @@
       "firstName":"[data-test='firstName']",
       "lastName":"[data-test='lastName']",
       "postalCode":"[data-test='postalCode']",
-<<<<<<< HEAD
       "continueButton":"[data-test='continue']",
       "cancelButton":"[data-test='cancel']"
     },
@@ -37,8 +36,5 @@
     "itemName": ".inventory_item_name",
     "itemPrice": ".inventory_item_price"
   }
-=======
-      "continueButton":"[data-test='continue']"
-    }
->>>>>>> dev
+     
 }
