@@ -17,14 +17,13 @@ Given('user is authenticated as {string}', (role) => {
 });
 
 Given('the following book exists:', (dataTable) => {
-  const bookData = dataTable.hashes().map((row) => ({
-    id: row.id ? parseInt(row.id) : undefined, // Convert id to integer if provided
-    title: row.title.replace(/"/g, ''), // Remove quotes from the title
-    author: row.author.replace(/"/g, ''), // Remove quotes from the author
-  }));
+  const bookId = parseInt(dataTable.hashes()[0].id); // Extract the book ID from the table
 
-  Books.addBook(bookData[0]).then((res) => {
-    response = res;
+  Books.getBookById(bookId).then((res) => {
+    // Assert that the book exists (status 200)
+    if (res.status !== 200) {
+      throw new Error(`Book with ID ${bookId} does not exist.`);
+    }
   });
 });
 
