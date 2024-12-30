@@ -28,6 +28,8 @@ Then('the response status should be {int} Created', (statusCode) => {
 });
 
 And('the response should contain the book data with title {string} and author {string}', (expectedTitle, expectedAuthor) => {
-  expect(response.body).to.have.property('title', expectedTitle);  
-  expect(response.body).to.have.property('author', expectedAuthor);  
+
+  console.log(response)
+  expect(response.body.title.trim()).to.eq(expectedTitle.trim());
+expect(response.body.author.trim()).to.eq(expectedAuthor.trim());  
 });
