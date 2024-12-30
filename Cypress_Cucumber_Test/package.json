@@ -17,6 +17,8 @@
     "step_definitions": "cypress/e2e/TestCases"
   },
   "devDependencies": {
+    "allure-js-commons": "^3.0.7",
+    "allure-mocha": "^3.0.7",
     "cypress": "^13.17.0"
   }
 }
