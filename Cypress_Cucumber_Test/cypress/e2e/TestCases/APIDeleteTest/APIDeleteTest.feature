@@ -6,8 +6,8 @@ Feature: API Testing to Delete Books Data
   Scenario: Successfully delete a book by ID
     Given the following book exists:
       | id    | title        | author    |
-      | 2     | "Book 3"     | "Author"  |
-    When user sends a DELETE request for the book with ID 2
+      | 1   | "Book 3"     | "Author"  |
+    When user sends a DELETE request for the book with ID 1
     Then the delete response status should be 200
     And the response should confirm deletion with message "Successfully deleted the book"
 
@@ -18,6 +18,6 @@ Feature: API Testing to Delete Books Data
 
   Scenario: Attempt to delete a book without proper authorization
     Given user is authenticated as "user"
-    When user sends a DELETE request for the book with ID 2
+    When user sends a DELETE request for the book with ID 1
     Then the delete response status should be 403
     And the response should contain the error message "User is not permitted."
