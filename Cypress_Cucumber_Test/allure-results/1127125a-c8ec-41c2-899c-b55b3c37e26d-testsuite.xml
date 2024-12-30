@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568711807' stop='1735568711972'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735589341526' stop='1735589341714'>
     <name>API Testing to Retrieve a Book by ID</name>
     <title>API Testing to Retrieve a Book by ID</title>
     <test-cases>
-        <test-case start='1735568711834' status='broken' stop='1735568711968'>
+        <test-case start='1735589341543' status='broken' stop='1735589341711'>
             <name>Retrieve a book using GET request by ID</name>
             <title>Retrieve a book using GET request by ID</title>
             <labels/>

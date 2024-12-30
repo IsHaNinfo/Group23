@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568736634' stop='1735568748345'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735570839338' stop='1735570851701'>
     <name>sourceDemo Filter Functionality</name>
     <title>sourceDemo Filter Functionality</title>
     <test-cases>
-        <test-case start='1735568736658' status='passed' stop='1735568742557'>
+        <test-case start='1735570839683' status='passed' stop='1735570846103'>
             <name>Verify filtering by Name (A to Z)</name>
             <title>Verify filtering by Name (A to Z)</title>
             <labels/>
@@ -11,7 +11,7 @@
             <steps/>
             <attachments/>
         </test-case>
-        <test-case start='1735568742575' status='passed' stop='1735568744657'>
+        <test-case start='1735570846120' status='passed' stop='1735570847592'>
             <name>Verify filtering by Name (Z to A)</name>
             <title>Verify filtering by Name (Z to A)</title>
             <labels/>
@@ -19,7 +19,7 @@
             <steps/>
             <attachments/>
         </test-case>
-        <test-case start='1735568744671' status='passed' stop='1735568746316'>
+        <test-case start='1735570847604' status='passed' stop='1735570850128'>
             <name>Verify filtering by Price (Low to High)</name>
             <title>Verify filtering by Price (Low to High)</title>
             <labels/>
@@ -27,7 +27,7 @@
             <steps/>
             <attachments/>
         </test-case>
-        <test-case start='1735568746327' status='passed' stop='1735568748345'>
+        <test-case start='1735570850137' status='passed' stop='1735570851701'>
             <name>Verify filtering by Price (High to Low)</name>
             <title>Verify filtering by Price (High to Low)</title>
             <labels/>

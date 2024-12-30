@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568823822' stop='1735568829219'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735589424988' stop='1735589429669'>
     <name>sourceDemo Product Navigation Feature</name>
     <title>sourceDemo Product Navigation Feature</title>
     <test-cases>
-        <test-case start='1735568824172' status='passed' stop='1735568829218'>
+        <test-case start='1735589425007' status='passed' stop='1735589429669'>
             <name>Verify that clicking on an item navigates to the item detail page</name>
             <title>Verify that clicking on an item navigates to the item detail page</title>
             <labels/>

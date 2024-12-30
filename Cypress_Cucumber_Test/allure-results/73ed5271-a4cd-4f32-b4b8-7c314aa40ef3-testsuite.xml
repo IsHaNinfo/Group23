@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568793076' stop='1735568798787'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735570919072' stop='1735570925341'>
     <name>sourceDemo RemoveItem Feature</name>
     <title>sourceDemo RemoveItem Feature</title>
     <test-cases>
-        <test-case start='1735568793442' status='passed' stop='1735568798787'>
+        <test-case start='1735570919433' status='passed' stop='1735570925341'>
             <name>Verify Add to Cart and Remove functionality directly from the dashboard</name>
             <title>Verify Add to Cart and Remove functionality directly from the dashboard</title>
             <labels/>

@@ -50,7 +50,7 @@ pipeline {
                 script {
                     echo "Generating Allure report..."
                     dir("${env.PROJECT_DIR}") {
-                        bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                    bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
                     }
                 }
             }

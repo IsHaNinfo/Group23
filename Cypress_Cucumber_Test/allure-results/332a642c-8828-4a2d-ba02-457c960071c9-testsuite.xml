@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568680786' stop='1735568688328'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735571436430' stop='1735571443416'>
     <name>sourceDemo Add to Cart Feature</name>
     <title>sourceDemo Add to Cart Feature</title>
     <test-cases>
-        <test-case start='1735568680820' status='passed' stop='1735568688328'>
+        <test-case start='1735571436780' status='passed' stop='1735571443416'>
             <name>user should be able to login using Valid Credentials</name>
             <title>user should be able to login using Valid Credentials</title>
             <labels/>

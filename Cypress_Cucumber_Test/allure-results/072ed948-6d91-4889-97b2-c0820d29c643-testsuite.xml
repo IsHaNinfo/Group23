@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568759749' stop='1735568765044'>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735571465833' stop='1735571471581'>
     <name>sourceDemo Continue Shipping Feature</name>
     <title>sourceDemo Continue Shipping Feature</title>
     <test-cases>
-        <test-case start='1735568759779' status='passed' stop='1735568765044'>
+        <test-case start='1735571465854' status='passed' stop='1735571471581'>
             <name>User should be able to log in using valid credentials and add an item to the cart</name>
             <title>User should be able to log in using valid credentials and add an item to the cart</title>
             <labels/>

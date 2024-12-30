@@ -13,7 +13,7 @@ cypress-cucumber/node_modules
 
 # testing
 /coverage
-/allure-results
+
 # next.js
 /.next/
 /out/

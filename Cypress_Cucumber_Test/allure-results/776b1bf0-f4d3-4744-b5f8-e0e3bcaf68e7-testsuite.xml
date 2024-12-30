@@ -1,11 +1,11 @@
 <?xml version='1.0'?>
-<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568834371' stop='1735568834917'>
-    <name>API Testing to Insert Books Data</name>
-    <title>API Testing to Insert Books Data</title>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735570772545' stop='1735570773267'>
+    <name>API Testing to Retrieve All Books</name>
+    <title>API Testing to Retrieve All Books</title>
     <test-cases>
-        <test-case start='1735568834710' status='broken' stop='1735568834911'>
-            <name>Successfully adding a new book</name>
-            <title>Successfully adding a new book</title>
+        <test-case start='1735570772893' status='broken' stop='1735570773264'>
+            <name>Retrieve all books using GET request</name>
+            <title>Retrieve all books using GET request</title>
             <labels/>
             <parameters/>
             <steps/>
