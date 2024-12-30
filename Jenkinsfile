@@ -30,12 +30,15 @@ pipeline {
 
                     echo "Installing Cypress binary..."
                     dir("${env.PROJECT_DIR}") {
-                        bat "npx cypress install"
+                        bat "npx cypress install --force"
                     }
 
                     echo "Running Cypress tests with Allure reporter..."
                     dir("${env.PROJECT_DIR}") {
-                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
+                        // Catch test failures and allow the pipeline to continue
+                        catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                            bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
+                        }
                     }
                 }
             }
@@ -71,6 +74,10 @@ pipeline {
 
         success {
             echo "Build completed successfully!"
+        }
+
+        unstable {
+            echo "Build completed with test failures. Check Allure report for details."
         }
 
         failure {
