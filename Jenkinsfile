@@ -8,6 +8,9 @@ pipeline {
 
     environment {
         TERM = 'xterm'
+        PROJECT_DIR = 'H:\\Group23\\Cypress_Cucumber_Test' // Base project directory
+        ALLURE_RESULTS_DIR = 'allure-results'             // Allure results directory
+        ALLURE_REPORT_DIR = 'allure-report'               // Allure report directory
     }
 
     stages {
@@ -20,48 +23,58 @@ pipeline {
         stage('Testing') {
             steps {
                 script {
-            echo "Installing dependencies..."
-            dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Change to the project directory
-                bat "npm install"
-            }
+                    echo "Installing dependencies..."
+                    dir("${env.PROJECT_DIR}") {
+                        bat "npm install"
+                    }
 
-            echo "Installing Cypress binary..."
-            dir('H:\\Group23\\Cypress_Cucumber_Test') {
-                bat "npx cypress install"
-            }
+                    echo "Installing Cypress binary..."
+                    dir("${env.PROJECT_DIR}") {
+                        bat "npx cypress install"
+                    }
 
-            echo "Running Cypress tests..."
-            dir('H:\\Group23\\Cypress_Cucumber_Test') {  // Ensure tests run from the correct directory
-                bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC}"
+                    echo "Running Cypress tests with Allure reporter..."
+                    dir("${env.PROJECT_DIR}") {
+                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
+                    }
+                }
             }
         }
-            }
-        }
 
-        stage('Deploying') {
+        stage('Generate Allure Report') {
             steps {
-                echo "Deploying the application"
+                script {
+                    echo "Generating Allure report..."
+                    dir("${env.PROJECT_DIR}") {
+                        bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                    }
+                }
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                allure([
+                    results: [[path: "${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}"]],
+                    reportBuildPolicy: 'ALWAYS'
+                ])
             }
         }
     }
 
     post {
         always {
-            echo "Generating Cypress report..."
-            script {
-                // Define the correct report directory from the project path
-                def reportDir = 'H:\\Group23\\Cypress_Cucumber_Test\\cypress\\report'
+            echo "Archiving Allure report artifacts..."
+            archiveArtifacts artifacts: "${env.PROJECT_DIR}\\${env.ALLURE_REPORT_DIR}\\**", allowEmptyArchive: true
+            cleanWs()
+        }
 
-                echo "Checking contents of report directory..."
-                bat "dir ${reportDir}"
+        success {
+            echo "Build completed successfully!"
+        }
 
-                // Ensure the report directory exists
-                if (fileExists(reportDir)) {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-                } else {
-                    echo "Cypress report directory does not exist."
-                }
-            }
+        failure {
+            echo "Build failed! Check the logs for more details."
         }
     }
 }
