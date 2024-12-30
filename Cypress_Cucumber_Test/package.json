@@ -19,6 +19,7 @@
   "devDependencies": {
     "allure-js-commons": "^3.0.7",
     "allure-mocha": "^3.0.7",
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "mocha-allure-reporter": "^1.4.0"
   }
 }
