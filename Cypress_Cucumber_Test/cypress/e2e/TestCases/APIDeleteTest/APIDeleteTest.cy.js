@@ -4,40 +4,40 @@ import Books from "../../API/Books/books.cy";
 
 let response;
 
+// Background step
 Given('user is logged into the service', () => {
   login.loginUser('admin', 'password').then((res) => {
-    response = res;
+    cy.wrap(res.body.token).as('authToken'); // Save the auth token for future use
   });
 });
 
+// Scenario-specific authentication
 Given('user is authenticated as {string}', (role) => {
   login.loginUser(role, 'password').then((res) => {
-    response = res;
+    cy.wrap(res.body.token).as('authToken'); // Save the auth token for this role
   });
 });
 
-Given('the following book exists:', (dataTable) => {
-  const bookId = parseInt(dataTable.hashes()[0].id); // Extract the book ID from the table
-
-  Books.getBookById(bookId).then((res) => {
-    // Assert that the book exists (status 200)
-    if (res.status !== 200) {
-      throw new Error(`Book with ID ${bookId} does not exist.`);
-    }
-  });
-});
-
+// Step to delete a book by ID
 When('user sends a DELETE request for the book with ID {int}', (bookId) => {
-    Books.deleteBook(bookId).then((res) => {
-        response = res;
+  cy.get('@authToken').then((token) => {
+    Books.deleteBook(bookId, token).then((res) => {
+      response = res; // Store the response for assertion
     });
+  });
 });
 
+// Step to validate response status
 Then('the delete response status should be {int}', (statusCode) => {
-    expect(response.status).to.eq(statusCode);
+  expect(response.status).to.eq(statusCode);
 });
 
+// Step to validate success message
+And('the response should confirm deletion with message {string}', (successMessage) => {
+  expect(response.body.message).to.eq(successMessage);
+});
+
+// Step to validate error message
 And('the response should contain the error message {string}', (expectedErrorMessage) => {
-    expect(response.body.message).to.eq(expectedErrorMessage);
+  expect(response.body.message).to.eq(expectedErrorMessage);
 });
-
