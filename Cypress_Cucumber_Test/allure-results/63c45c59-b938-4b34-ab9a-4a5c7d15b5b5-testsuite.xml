@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735568722478' stop='1735568731814'>
+    <name>API Testing for Login User</name>
+    <title>API Testing for Login User</title>
+    <test-cases>
+        <test-case start='1735568722504' status='passed' stop='1735568731473'>
+            <name>Valid login with user credentials</name>
+            <title>Valid login with user credentials</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735568731486' status='failed' stop='1735568731812'>
+            <name>Invalid login with admin credentials</name>
+            <title>Invalid login with admin credentials</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>expected 200 to equal 404</message>
+                <stack-trace>AssertionError: expected 200 to equal 404
+                    at Context.eval (cypress/e2e/TestCases/ApiLogin/ApiLogin.cy.js:23:29)
+                    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)
+                    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
