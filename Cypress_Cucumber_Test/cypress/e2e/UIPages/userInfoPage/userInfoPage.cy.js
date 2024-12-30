@@ -34,6 +34,11 @@ navigateUserInformationPage() {
     return;
   }
 
+  ClickCancelButton() {
+    cy.get(pageElementLocators.userInformationPage.cancelButton).click();
+    return;
+  }
+
 }
 
 const userinfo = new UserInfoPage();
