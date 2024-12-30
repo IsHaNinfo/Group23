@@ -33,7 +33,6 @@ class Books {
     });
   }
 
-
 }
 
 const books = new Books();
