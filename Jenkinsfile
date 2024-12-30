@@ -38,9 +38,17 @@ pipeline {
                         // Catch test failures and allow the pipeline to continue
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                             bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
-
                         }
                     }
+                }
+            }
+        }
+
+        stage('Check Allure CLI') {
+            steps {
+                script {
+                    echo "Verifying Allure CLI installation..."
+                    bat "allure --version"
                 }
             }
         }
@@ -50,7 +58,14 @@ pipeline {
                 script {
                     echo "Generating Allure report..."
                     dir("${env.PROJECT_DIR}") {
-                    bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                        // Check if the allure-results directory exists and is not empty
+                        script {
+                            def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
+                            if (!resultsDirExists) {
+                                error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
+                            }
+                        }
+                        bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
                     }
                 }
             }
