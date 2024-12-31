@@ -72,10 +72,7 @@ pipeline {
 
     post {
      
-             always {
-        archiveArtifacts artifacts: "${Cypress_Cucumber_Test\\allure-report}", allowEmptyArchive: true
-            }
-        
+
 
         success {
             echo "Build completed successfully!"
