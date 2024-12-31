@@ -1,1 +1,0 @@
-npx cypress install --force

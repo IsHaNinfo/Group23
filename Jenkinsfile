@@ -36,7 +36,7 @@ pipeline {
                     echo "Running Cypress tests with Allure reporter..."
                     dir("${env.PROJECT_DIR}") {
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                            bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=$${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}"
+                    bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}"
                         }
                     }
                 }
