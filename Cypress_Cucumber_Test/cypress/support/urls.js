@@ -5,7 +5,8 @@ const urls = {
     inventory_item:'/inventory-item.html',
     inventory_item:'/inventory-item.html',
     userInfo:'/checkout-step-one.html',
-    paymentInfo:'/checkout-step-two.html'
+    paymentInfo:'/checkout-step-two.html',
+    checkoutComplete:'/checkout-complete.html'
   };
   
 

@@ -25,5 +25,11 @@
       "lastName":"[data-test='lastName']",
       "postalCode":"[data-test='postalCode']",
       "continueButton":"[data-test='continue']"
-    }
+    },
+    "paymentPage": {
+      "finishButton": "[data-test='finish']"
+    },
+    "checkoutCompletePage": {
+      "header": "[data-test='complete-header']"
+      }
 }

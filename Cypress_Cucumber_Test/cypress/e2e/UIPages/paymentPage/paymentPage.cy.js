@@ -7,6 +7,16 @@ class PaymentInfoPage {
         cy.url().should("include", urls.paymentInfo);
         return this;
       }
+      
+    clickFinishButton() {
+        cy.get(pageElementLocators.paymentPage.finishButton).click();
+        return this;
+      }
+
+    verifyCheckoutCompletePage() {
+      cy.url().should("include", urls.checkoutComplete);  
+      return this;
+    }
 }
 
 
