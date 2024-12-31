@@ -71,6 +71,10 @@ pipeline {
     }
 
     post {
+     
+             always {
+        archiveArtifacts artifacts: "${env.WORKSPACE}\\allure-report", allowEmptyArchive: true
+            }
         
 
         success {
