@@ -37,6 +37,6 @@ And('User clicks on the add to cart icon in inventory page', () => {
     cart.removeItemFromCart();
   });
   
-  And('Verify that the selected item is removed and no items are displayed in the cart', () => {
+  Then('Verify that the selected item is removed and no items are displayed in the cart', () => {
     cart.verifyCartIsEmpty();
   });
