@@ -21,6 +21,21 @@ pipeline {
             }
         }
 
+        stage('Check Allure Results Directory') {
+            steps {
+                script {
+                    echo "Checking allure-results directory..."
+                    // Create the allure-results directory if it doesn't exist
+                    if (!fileExists("${env.WORKSPACE}\\allure-results")) {
+                        echo "Creating allure-results directory..."
+                        bat "mkdir ${env.WORKSPACE}\\allure-results"
+                    } else {
+                        echo "allure-results directory exists."
+                    }
+                }
+            }
+        }
+
         stage('Testing') {
             steps {
                 script {
@@ -37,8 +52,21 @@ pipeline {
                     echo "Running Cypress tests with Allure reporter..."
                     dir(env.PROJECT_DIR) {
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.WORKSPACE}\\allure-results"
+                            bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.WORKSPACE}\\allure-results"
                         }
+                    }
+                }
+            }
+        }
+
+        stage('Check Allure Results After Testing') {
+            steps {
+                script {
+                    echo "Checking allure-results directory after test execution..."
+                    // List contents of the allure-results directory to confirm the results files are there
+                    bat "dir ${env.WORKSPACE}\\allure-results"
+                    if (!fileExists("${env.WORKSPACE}\\allure-results")) {
+                        error("allure-results directory does not exist or is empty after test execution.")
                     }
                 }
             }
@@ -47,12 +75,9 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 script {
-                    echo "Checking allure-results directory..."
-                    if (!fileExists("${env.WORKSPACE}\\allure-results")) {
-                        error("allure-results directory does not exist or is empty.")
-                    }
-                    echo "Generating Allure report..."
-                    bat "allure generate ${env.WORKSPACE}\\allure-results -o ${env.WORKSPACE}\\allure-report --clean"
+                    echo "Generating Allure report using custom Allure command..."
+                    // Run the Allure generate command with your specified path
+                    bat "\"C:\\Users\\ISHAN PC\\allure-2.32.0\\allure-2.32.0\\bin\\allure.bat\" generate -c -o ${env.WORKSPACE}\\allure-report ${env.WORKSPACE}\\allure-results"
                 }
             }
         }
@@ -71,9 +96,6 @@ pipeline {
     }
 
     post {
-     
-
-
         success {
             echo "Build completed successfully!"
         }
