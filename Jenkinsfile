@@ -11,7 +11,7 @@ pipeline {
         PROJECT_DIR = "H:\\Group23\\Cypress_Cucumber_Test"
         ALLURE_RESULTS_DIR = "allure-results"
         ALLURE_REPORT_DIR = "allure-report"
-        WORKSPACE = "C:\ProgramData\Jenkins\.jenkins\workspace\hh"
+        WORKSPACE = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\hh"
     }
 
     stages {
