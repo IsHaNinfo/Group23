@@ -9,7 +9,7 @@ pipeline {
     environment {
         TERM = 'xterm'
         PROJECT_DIR = 'H:\\Group23\\Cypress_Cucumber_Test' // Base project directory
-        ALLURE_RESULTS_DIR = 'allure-results'             // Allure results directory
+        ALLURE_RESULTS_DIR = '/Cypress_Cucumber_Test/allure-results'             // Allure results directory
         ALLURE_REPORT_DIR = 'allure-report'               // Allure report directory
     }
 
@@ -30,7 +30,7 @@ pipeline {
 
                     echo "Installing Cypress binary..."
                     dir("${env.PROJECT_DIR}") {
-                        bat "npx cypress install --force"
+                        bat "npx cypress-cucumber-preprocessor install --force"
                     }
 
                     echo "Running Cypress tests with Allure reporter..."
