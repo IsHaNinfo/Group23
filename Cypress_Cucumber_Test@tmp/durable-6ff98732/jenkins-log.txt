@@ -1,0 +1,10 @@
+
+H:\Group23\Cypress_Cucumber_Test>npx cypress install --force 
+
+Cypress 13.17.0 is installed in C:\Windows\system32\config\systemprofile\AppData\Local\Cypress\Cache\13.17.0
+
+Installing Cypress (version: 13.17.0)
+
+[STARTED] Task without title.
+[SUCCESS] Task without title.
+[STARTED] Task without title.
