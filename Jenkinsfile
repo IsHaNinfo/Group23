@@ -11,6 +11,7 @@ pipeline {
         PROJECT_DIR = "H:\\Group23\\Cypress_Cucumber_Test"
         ALLURE_RESULTS_DIR = "allure-results"
         ALLURE_REPORT_DIR = "allure-report"
+        WORKSPACE = "C:\ProgramData\Jenkins\.jenkins\workspace\hh"
     }
 
     stages {
@@ -36,7 +37,7 @@ pipeline {
                     echo "Running Cypress tests with Allure reporter..."
                     dir(env.PROJECT_DIR) {
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                            bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${ALLURE_RESULTS_DIR}"
+                        bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.WORKSPACE}\\allure-results"
                         }
                     }
                 }
@@ -46,13 +47,12 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 script {
-                    echo "Generating Allure report..."
-                    dir(env.PROJECT_DIR) {
-                        if (!fileExists("${ALLURE_RESULTS_DIR}")) {
-                            error("The directory '${ALLURE_RESULTS_DIR}' does not exist or is empty.")
-                        }
-                        bat "allure generate ${ALLURE_RESULTS_DIR} -o ${ALLURE_REPORT_DIR} --clean"
+                    echo "Checking allure-results directory..."
+                    if (!fileExists("${env.WORKSPACE}\\allure-results")) {
+                        error("allure-results directory does not exist or is empty.")
                     }
+                    echo "Generating Allure report..."
+                    bat "allure generate ${env.WORKSPACE}\\allure-results -o ${env.WORKSPACE}\\allure-report --clean"
                 }
             }
         }
@@ -62,7 +62,7 @@ pipeline {
                 script {
                     echo "Publishing Allure report..."
                     allure([
-                        results: [[path: "${ALLURE_RESULTS_DIR}"]],
+                        results: [[path: "${env.WORKSPACE}\\allure-results"]],
                         reportBuildPolicy: 'ALWAYS'
                     ])
                 }
@@ -71,15 +71,11 @@ pipeline {
     }
 
     post {
-        always {
-            script {
-                echo "Archiving Allure report artifacts..."
-                dir(env.PROJECT_DIR) {
-                    archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", allowEmptyArchive: true
-                }
-                cleanWs()
+     
+             always {
+        archiveArtifacts artifacts: "${env.WORKSPACE}\\allure-results/**/*", allowEmptyArchive: true
             }
-        }
+        
 
         success {
             echo "Build completed successfully!"
