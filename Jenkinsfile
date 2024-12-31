@@ -57,7 +57,7 @@ pipeline {
                                 error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
                             }
                         }
-                        bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                bat "C:\\Users\\ISHAN PC\\allure-2.32.0\\bin\\allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
                     }
                 }
             }
