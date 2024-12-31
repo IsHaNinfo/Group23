@@ -45,21 +45,23 @@ pipeline {
         }
 
         stage('Generate Allure Report') {
-    steps {
-        script {
-            echo "Generating Allure report..."
-            dir("${env.PROJECT_DIR}") {
-                // Check if the allure-results directory exists
-                def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
-                if (!resultsDirExists) {
-                    error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
+            steps {
+                script {
+                    echo "Generating Allure report..."
+                    dir("${env.PROJECT_DIR}") {
+                        // Ensure allure-results directory exists and contains result files
+                        def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
+                        def resultsFiles = findFiles(glob: "${env.ALLURE_RESULTS_DIR}/*.json")
+                        if (!resultsDirExists || resultsFiles.isEmpty()) {
+                            error("The ${env.ALLURE_RESULTS_DIR} directory does not contain any test result files.")
+                        }
+
+                        // Generate the Allure report
+                        bat "allure generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                    }
                 }
-                // Properly quoted or raw string for the allure command
             }
         }
-    }
-}
-
 
         stage('Publish Allure Report') {
             steps {
@@ -74,6 +76,7 @@ pipeline {
     post {
         always {
             echo "Archiving Allure report artifacts..."
+            archiveArtifacts artifacts: "${env.PROJECT_DIR.replaceAll('\\\\', '/')}/${env.ALLURE_RESULTS_DIR}/**", allowEmptyArchive: true
             archiveArtifacts artifacts: "${env.PROJECT_DIR.replaceAll('\\\\', '/')}/${env.ALLURE_REPORT_DIR}/**", allowEmptyArchive: true
             cleanWs()
         }
