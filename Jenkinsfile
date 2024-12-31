@@ -8,9 +8,9 @@ pipeline {
 
     environment {
         TERM = 'xterm'
-        PROJECT_DIR = 'H:\\Group23\\Cypress_Cucumber_Test' // Base project directory
-        ALLURE_RESULTS_DIR = '/Cypress_Cucumber_Test/allure-results'             // Allure results directory
-        ALLURE_REPORT_DIR = 'allure-report'               // Allure report directory
+        PROJECT_DIR = 'H:\\Group23\\Cypress_Cucumber_Test' 
+        ALLURE_RESULTS_DIR = 'Cypress_Cucumber_Test\\allure-results' 
+        ALLURE_REPORT_DIR = 'Cypress_Cucumber_Test\\allure-report' 
     }
 
     stages {
@@ -30,12 +30,11 @@ pipeline {
 
                     echo "Installing Cypress binary..."
                     dir("${env.PROJECT_DIR}") {
-                        bat "npx cypress-cucumber-preprocessor install --force"
+                        bat "npx cypress install --force"
                     }
 
                     echo "Running Cypress tests with Allure reporter..."
                     dir("${env.PROJECT_DIR}") {
-                        // Catch test failures and allow the pipeline to continue
                         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                             bat "npx cypress run --browser ${params.BROWSER} --spec ${params.SPEC} --reporter mocha-allure-reporter --reporter-options resultsDir=${env.ALLURE_RESULTS_DIR}"
                         }
@@ -45,21 +44,19 @@ pipeline {
         }
 
         stage('Generate Allure Report') {
-    steps {
-        script {
-            echo "Generating Allure report..."
-            dir("${env.PROJECT_DIR}") {
-                // Check if the allure-results directory exists
-                def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
-                if (!resultsDirExists) {
-                    error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
+            steps {
+                script {
+                    echo "Generating Allure report..."
+                    dir("${env.PROJECT_DIR}") {
+                        def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
+                        if (!resultsDirExists) {
+                            error("The ${env.PROJECT_DIR}\\{env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
+                        }
+                        bat "allure generate ${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR} -o ${env.PROJECT_DIR}\\${env.ALLURE_REPORT_DIR} --clean"
+                    }
                 }
-                // Properly quoted or raw string for the allure command
             }
         }
-    }
-}
-
 
         stage('Publish Allure Report') {
             steps {
@@ -74,7 +71,7 @@ pipeline {
     post {
         always {
             echo "Archiving Allure report artifacts..."
-            archiveArtifacts artifacts: "${env.ALLURE_REPORT_DIR}/**", allowEmptyArchive: true
+            archiveArtifacts artifacts: "${env.PROJECT_DIR}\\${env.ALLURE_REPORT_DIR}", allowEmptyArchive: true
             cleanWs()
         }
 
