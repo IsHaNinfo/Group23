@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735623744426' stop='1735623745986'>
+    <name>API Testing to Insert Books Data</name>
+    <title>API Testing to Insert Books Data</title>
+    <test-cases>
+        <test-case start='1735623744785' status='passed' stop='1735623745986'>
+            <name>Successfully adding a new book</name>
+            <title>Successfully adding a new book</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

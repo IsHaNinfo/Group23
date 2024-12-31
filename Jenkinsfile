@@ -44,14 +44,6 @@ pipeline {
             }
         }
 
-        stage('Check Allure CLI') {
-            steps {
-                script {
-                    echo "Verifying Allure CLI installation..."
-                    bat "allure --version"
-                }
-            }
-        }
 
         stage('Generate Allure Report') {
             steps {
