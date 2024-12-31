@@ -34,7 +34,19 @@ navigateUserInformationPage() {
     return;
   }
 
+  ClickCancelButton() {
+    cy.get(pageElementLocators.userInformationPage.cancelButton).click(); 
+    return this;
+  }
+
+  navigateToCartPage() {
+    cy.url().should("include", urls.cart); 
+    return this;
+  }
 }
+
+
+
 
 const userinfo = new UserInfoPage();
 export default userinfo;
