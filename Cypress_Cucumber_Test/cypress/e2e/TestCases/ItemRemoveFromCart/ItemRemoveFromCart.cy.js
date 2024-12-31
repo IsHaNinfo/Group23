@@ -9,11 +9,11 @@ Given("Visit sourceDemo Website", function () {
     login.visitMainPage()
 });
 
-When("User is logged in and on the inventory page", function () {
+When("User is logged in and navigate the inventory page", function () {
     login.uname(user.username);
     login.pass(user.password);
     login.LoginButton("");
-    login.verifyInventoryPage();
+    inventory.verifyInventoryPage();
 });
 
 
@@ -21,7 +21,7 @@ When("User adds the first item to the cart", function () {
     inventory.addFirstItemToCart();
 });
 
-And('User clicks on the cart icon', () => {
+And('User clicks on the add to cart icon in inventory page', () => {
     inventory.clickCartIcon();
   });
   //bug
@@ -29,14 +29,14 @@ And('User clicks on the cart icon', () => {
     cart.verifyCartPage();
   });
   
-  And('Verify that item is displayed in the cart', () => {
+  And('Verify that selected item is displayed in the cart', () => {
     cart.verifyAddedItemInCart();
   });
   
-  When('User clicks on the remove button for item in the cart', () => {
+  When('user clicks the Remove button on the item in the cart', () => {
     cart.removeItemFromCart();
   });
   
-  And('Verify that the cart is updated and no items are displayed', () => {
+  And('Verify that the selected item is removed and no items are displayed in the cart', () => {
     cart.verifyCartIsEmpty();
   });
