@@ -73,7 +73,7 @@ pipeline {
     post {
      
              always {
-        archiveArtifacts artifacts: "${env.WORKSPACE}\\allure-report", allowEmptyArchive: true
+        archiveArtifacts artifacts: "${Cypress_Cucumber_Test\\allure-report}", allowEmptyArchive: true
             }
         
 
