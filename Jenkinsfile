@@ -57,7 +57,7 @@ pipeline {
                             }
                         }
                         // Properly quote the path to allure
-                        bat "\"C:\\Users\\ISHAN PC\\allure-2.32.0\\bin\\allure\" generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
+                        bat "\"C:\\Users\\ISHAN PC\\allure-2.32.0\\bin" generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
                     }
                 }
             }

@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735628819181' stop='1735628819685'>
+    <name>API Testing to Invalid Type Data</name>
+    <title>API Testing to Invalid Type Data</title>
+    <test-cases>
+        <test-case start='1735628819209' status='passed' stop='1735628819685'>
+            <name>Adding book with invalid data</name>
+            <title>Adding book with invalid data</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
