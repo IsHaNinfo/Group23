@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735625153775' stop='1735625154151'>
+    <name>API Testing to Retrieve Book Details</name>
+    <title>API Testing to Retrieve Book Details</title>
+    <test-cases>
+        <test-case start='1735625153794' status='passed' stop='1735625153984'>
+            <name>Successfully retrieve a book by valid ID</name>
+            <title>Successfully retrieve a book by valid ID</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735625153997' status='passed' stop='1735625154150'>
+            <name>Attempt to retrieve a book with an invalid ID</name>
+            <title>Attempt to retrieve a book with an invalid ID</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
