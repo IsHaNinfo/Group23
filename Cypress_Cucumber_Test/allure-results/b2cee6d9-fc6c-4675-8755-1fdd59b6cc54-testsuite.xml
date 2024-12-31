@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735630589885' stop='1735630590924'>
+    <name>API Testing to Retrieve All Books</name>
+    <title>API Testing to Retrieve All Books</title>
+    <test-cases>
+        <test-case start='1735630589922' status='passed' stop='1735630590923'>
+            <name>Retrieve all books using GET request</name>
+            <title>Retrieve all books using GET request</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
