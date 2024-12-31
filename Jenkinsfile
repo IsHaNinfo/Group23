@@ -45,23 +45,22 @@ pipeline {
         }
 
         stage('Generate Allure Report') {
-            steps {
-                script {
-                    echo "Generating Allure report..."
-                    dir("${env.PROJECT_DIR}") {
-                        // Check if the allure-results directory exists and is not empty
-                        script {
-                            def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
-                            if (!resultsDirExists) {
-                                error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
-                            }
-                        }
-                        // Properly quote the path to allure
-                        bat "\"C:\\Users\\ISHAN PC\\allure-2.32.0\\bin" generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
-                    }
+    steps {
+        script {
+            echo "Generating Allure report..."
+            dir("${env.PROJECT_DIR}") {
+                // Check if the allure-results directory exists
+                def resultsDirExists = fileExists("${env.PROJECT_DIR}\\${env.ALLURE_RESULTS_DIR}")
+                if (!resultsDirExists) {
+                    error("The ${env.ALLURE_RESULTS_DIR} directory does not exist or is empty.")
                 }
+                // Properly quoted or raw string for the allure command
+                bat "\"C:\\Users\\ISHAN PC\\allure-2.32.0\\bin\\allure.bat\" generate ${env.ALLURE_RESULTS_DIR} --clean -o ${env.ALLURE_REPORT_DIR}"
             }
         }
+    }
+}
+
 
         stage('Publish Allure Report') {
             steps {
