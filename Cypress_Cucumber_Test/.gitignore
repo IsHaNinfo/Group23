@@ -17,8 +17,7 @@ cypress-cucumber/node_modules
 # next.js
 /.next/
 /out/
-/allure-report
-/allure-results
+
 
 # production
 /build

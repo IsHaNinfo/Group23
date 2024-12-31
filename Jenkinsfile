@@ -74,7 +74,7 @@ pipeline {
     post {
         always {
             echo "Archiving Allure report artifacts..."
-            archiveArtifacts artifacts: "${env.PROJECT_DIR}\\${env.ALLURE_REPORT_DIR}\\**", allowEmptyArchive: true
+            archiveArtifacts artifacts: "${env.PROJECT_DIR.replaceAll('\\\\', '/')}/${env.ALLURE_REPORT_DIR}/**", allowEmptyArchive: true
             cleanWs()
         }
 
