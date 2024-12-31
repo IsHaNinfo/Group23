@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735589341526' stop='1735589341714'>
+    <name>API Testing to Retrieve a Book by ID</name>
+    <title>API Testing to Retrieve a Book by ID</title>
+    <test-cases>
+        <test-case start='1735589341543' status='broken' stop='1735589341711'>
+            <name>Retrieve a book using GET request by ID</name>
+            <title>Retrieve a book using GET request by ID</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>_login.default.loginUser is not a function</message>
+                <stack-trace>TypeError: _login.default.loginUser is not a function
+                    at Context.eval (cypress/e2e/TestCases/APIGetTest/APIGetBookByIdTest.cy.js:8:8)
+                    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)
+                    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
