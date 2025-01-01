@@ -87,7 +87,7 @@ pipeline {
                 script {
                     echo "Publishing Allure report..."
                     allure([
-                        results: [[path: "${env.WORKSPACE}\\allure-results"]],
+                        results: "${env.WORKSPACE}\\allure-results",
                         reportBuildPolicy: 'ALWAYS'
                     ])
                 }
