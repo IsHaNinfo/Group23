@@ -24,6 +24,17 @@
       "firstName":"[data-test='firstName']",
       "lastName":"[data-test='lastName']",
       "postalCode":"[data-test='postalCode']",
-      "continueButton":"[data-test='continue']"
-    }
+      "continueButton":"[data-test='continue']",
+      "cancelButton":"[data-test='cancel']"
+    },
+    "CartPageLocators": {
+    "cartItemName": "[data-test='inventory-item-name']"
+  },
+
+  "FilterLocators": {
+    "filterDropdown": "[data-test='product-sort-container']",
+    "itemName": ".inventory_item_name",
+    "itemPrice": ".inventory_item_price"
+  }
+     
 }

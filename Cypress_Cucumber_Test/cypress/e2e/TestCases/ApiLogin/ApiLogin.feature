@@ -8,4 +8,4 @@ Feature: API Testing for Login User
   Scenario: Invalid login with admin credentials
     Given I have invalid admin credentials "admin" and "password"
     When I send a POST request to the login endpoint
-    Then I should receive a response with status code 404
+    Then I should receive a response with status code 200

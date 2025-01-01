@@ -9,4 +9,11 @@ module.exports = defineConfig({
     baseUrlAPI: "http://localhost:7081",
   },
   chromeWebSecurity: false,
+  
+    "reporter": "mocha-allure-reporter",
+    "reporterOptions": {
+      "resultsDir": "allure-results"
+    }
+  
+  
 });
