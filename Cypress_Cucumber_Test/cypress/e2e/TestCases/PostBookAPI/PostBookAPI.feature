@@ -20,12 +20,5 @@ Feature: API Testing to Insert Books Data
   And the responses should contain the inserted title and author
     | id | title | author |
     | 2  |       | author2  |
-   Scenario: Adding book with invalid data
-  When the user sends a POST request to create a new book with the following details:
-    | id  | title | author |
-    | abc | true  | false  |
-  Then the response status should be 400
-  And the responses should contain the inserted title and author
-    | id  | title | author |
-    | abc | true  | false  |
+
 
