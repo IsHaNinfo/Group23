@@ -21,18 +21,28 @@ class Books {
     return cy.request('DELETE', `${baseUrl}/api/books/${bookId}`);
   }
   
-  addBook(bookData) {
+  addBook(bookData,auth) {
     return cy.request({
       method: 'POST',
       url: `${baseUrl}/api/books`, 
       body: bookData, 
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: auth,
       failOnStatusCode: false, 
     });
   }
-
+  updateBook(bookData,auth) {
+    return cy.request({
+      method: "PUT",
+    url: `${baseUrl}/api/books/${bookData.id}`,
+    headers: auth,
+    failOnStatusCode: false,
+    body: {
+      id: parseInt(bookData.id),
+      title: bookData.title,
+      author: bookData.author,
+    },
+    });
+  }
 }
 
 const books = new Books();
