@@ -17,6 +17,11 @@ class PaymentInfoPage {
       cy.url().should("include", urls.checkoutComplete);  
       return this;
     }
+
+    clickBackHomeButton() {
+      cy.get(pageElementLocators.checkoutCompletePage.backHomeButton).click();
+      return this;
+  }
 }
 
 

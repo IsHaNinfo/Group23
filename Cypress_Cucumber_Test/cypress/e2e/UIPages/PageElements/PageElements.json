@@ -30,6 +30,8 @@
       "finishButton": "[data-test='finish']"
     },
     "checkoutCompletePage": {
-      "header": "[data-test='complete-header']"
+      "header": "[data-test='complete-header']",
+      "backHomeButton": "[data-test='back-to-products']"
+
       }
 }
