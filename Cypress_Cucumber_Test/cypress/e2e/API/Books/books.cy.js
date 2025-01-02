@@ -41,6 +41,20 @@ class Books {
       failOnStatusCode: false,
     });
   }
+
+  updateBook(bookData,auth) {
+    return cy.request({
+      method: "PUT",
+    url: `${baseUrl}/api/books/${bookData.id}`,
+    headers: auth,
+    failOnStatusCode: false,
+    body: {
+      id: parseInt(bookData.id),
+      title: bookData.title,
+      author: bookData.author,
+    },
+    });
+  }
 }
 
 const books = new Books();
