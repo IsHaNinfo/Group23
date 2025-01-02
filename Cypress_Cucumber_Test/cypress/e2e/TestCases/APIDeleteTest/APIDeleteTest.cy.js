@@ -6,14 +6,14 @@ let response;
 
 // Background step
 Given('user is logged into the service', () => {
-  login.loginUser('admin', 'password').then((res) => {
+  login.loginAuth('admin', 'password').then((res) => {
     cy.wrap(res.body.token).as('authToken'); // Save the auth token for future use
   });
 });
 
 // Scenario-specific authentication
 Given('user is authenticated as {string}', (role) => {
-  login.loginUser(role, 'password').then((res) => {
+  login.loginAuth(role, 'password').then((res) => {
     cy.wrap(res.body.token).as('authToken'); // Save the auth token for this role
   });
 });
@@ -23,6 +23,7 @@ When('user sends a DELETE request for the book with ID {int}', (bookId) => {
   cy.get('@authToken').then((token) => {
     Books.deleteBook(bookId, token).then((res) => {
       response = res; // Store the response for assertion
+      
     });
   });
 });
@@ -38,6 +39,6 @@ And('the response should confirm deletion with message {string}', (successMessag
 });
 
 // Step to validate error message
-And('the response should contain the error message {string}', (expectedErrorMessage) => {
+And('the response should contain a error message {string}', (expectedErrorMessage) => {
   expect(response.body.message).to.eq(expectedErrorMessage);
 });
