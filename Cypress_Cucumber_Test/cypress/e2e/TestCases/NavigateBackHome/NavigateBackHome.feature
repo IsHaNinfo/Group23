@@ -1,9 +1,8 @@
-Feature: sourceDemo Checkout Feature
+Feature: sourceDemo Checkout Feature 
 
-    Through this feature, the user should be able to log in to the sourceDemo Website, 
-    add items to the cart, and proceed to checkout.
 
-    Scenario: User should be able to log in using valid credentials and add an item to the cart, and proceed to checkout
+    Scenario: A user logs in using valid credentials, adds an item to the cart, proceeds to checkout,
+              completes the checkout process successfully, and then navigates back to the home page.
         Given Visit sourceDemo Website
         When User is logged in and on the inventory page
         And User adds the first item to the cart
@@ -20,4 +19,4 @@ Feature: sourceDemo Checkout Feature
         When User clicks the "Finish" button
         Then Verify that user is navigated to the checkout complete page
         And The user clicks the "BackHome" button
-       Then Verify that user is navigated to the inventory page
+        Then Verify that user is navigated to the inventory page
