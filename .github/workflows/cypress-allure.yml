@@ -4,26 +4,21 @@ on:
   push:
     branches:
       - ishan
-  pull_request:
-    branches:
-      - ishan
 
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.15
+      # Step 2: List directory structure for debugging (optional)
+      - name: Debug Directory Structure
+        run: ls -R
 
-      # Step 3: Install dependencies
+      # Step 3: Install dependencies in the root directory
       - name: Install Dependencies
         run: npm install
 
@@ -37,9 +32,9 @@ jobs:
           npm run allure:generate
           npm run allure:open
 
-      # Step 6: Upload Allure Results as an artifact
+      # Step 6: Upload Allure Report
       - name: Upload Allure Report
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
-          path: allure-report
+          path: target/allure-report
