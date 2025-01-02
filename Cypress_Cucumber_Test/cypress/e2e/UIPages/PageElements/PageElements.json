@@ -9,7 +9,9 @@
     "addToCartButton": "[data-test='add-to-cart-sauce-labs-backpack']",
     "removeButton": "[data-test='remove-sauce-labs-backpack']",
     "cartIcon": "[data-test='shopping-cart-link']",
-    "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']"
+    "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']",
+    "allItemsLink": "[data-test='inventory-sidebar-link']"
+
   },
   "cartPage": {
       "checkoutButton": "[data-test='checkout']",
@@ -19,7 +21,7 @@
     },
     "itemPage":{
       "itemName":"[data-test='inventory-item-name']"
-    },
+    }, 
     "userInformationPage":{
       "firstName":"[data-test='firstName']",
       "lastName":"[data-test='lastName']",

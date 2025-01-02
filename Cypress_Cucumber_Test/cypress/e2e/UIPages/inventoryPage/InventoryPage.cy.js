@@ -70,14 +70,24 @@ class Inventory {
   }
 
   navigateInventoryItemPage() {
-    cy.url().should("include", urls.inventory_item);
+    cy.url().should("include", urls.inventory_item); 
     return this;
   }
 
-  verifyNavigationToDashboard() {
-    cy.url().should("include", urls.inventory);
+  clickMenuIcon() {
+    cy.get('.bm-burger-button > button')  
+      .should('be.visible')
+      .click();
     return this;
   }
+
+
+  clickAllItemsLink() {
+    cy.get(pageElementLocators.InventoryPageLocators.allItemsLink)  
+      .click();  
+    return this;
+  }
+
 }
 
 
