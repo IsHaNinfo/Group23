@@ -1,0 +1,112 @@
+name: End-to-end tests
+
+on: push
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: Install Java Runtime Environment to run the .jar file
+      - name: Install Java
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre
+
+      # Step 3: Start the backend by running the .jar file in the background
+      - name: Start Backend
+        run: |
+          nohup java -jar demo-backend/demo-0.0.1-SNAPSHOT.jar > backend.log 2>&1 &
+
+      # Step 4: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 5: Install dependencies and run Cypress tests
+      - name: Cypress Run
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: Cypress_Cucumber_Test
+          install-command: npm install
+          start: npx cypress run
+        continue-on-error: true
+
+      # Step 6: Stop the backend after the tests
+      - name: Stop Backend
+        if: always()
+        run: |
+          pkill -f 'java -jar demo-backend/demo-0.0.1-SNAPSHOT.jar' || true
+
+      # Step 7: Create a report directory for test results
+      - name: Prepare GitHub Pages Directory
+        if: always()
+        run: |
+          mkdir -p results/github-pages
+          cp results/result.html results/github-pages/index.html || true
+
+      # Step 8: Create gh-pages branch if it doesn't exist
+      - name: Create gh-pages Branch if Needed
+        run: |
+          if ! git ls-remote --heads origin gh-pages; then
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initial gh-pages branch"
+            git push origin gh-pages
+            git checkout -
+          fi
+
+      # Step 9: Set up GitHub Pages
+      - name: Setup Pages
+        if: always()
+        uses: actions/configure-pages@v3
+
+      # Step 10: Upload artifacts for GitHub Pages
+      - name: Deploy GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: results/github-pages
+          user_name: "ishaninfo"
+          user_email: "ishaninfo56@gmail.com"
+
+      # Step 11: Fetch Allure history (optional if needed for Allure integration)
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        with:
+          ref: gh-pages
+          path: allure-history
+
+      # Step 12: Generate Allure Report
+      - name: Generate Allure Report
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: Cypress_Cucumber_Test/allure-results
+          gh_pages: allure-history
+
+      # Step 13: Deploy Allure Report to GitHub Pages
+      - name: Deploy Allure Report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
+          user_name: "ishaninfo"
+          user_email: "ishaninfo56@gmail.com"
