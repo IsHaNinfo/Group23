@@ -1,5 +1,5 @@
 import urls from "../../../support/urls.js";
-const pageElementLocators = require("../pageElements/PageElements.json");
+import pageElementLocators from "../PageElements/PageElements.json"
 
 class Cart {
   verifyCartPage() {
