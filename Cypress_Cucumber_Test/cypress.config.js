@@ -9,8 +9,8 @@ module.exports = defineConfig({
       on("file:preprocessor", cucumber());
       allureWriter(on, config);
       return config;
+
     },
-    
     baseUrlAPI: "http://localhost:7081",
   },
   chromeWebSecurity: false,
@@ -19,9 +19,8 @@ module.exports = defineConfig({
     "reporterOptions": {
       "resultsDir": "allure-results"
     },
+  
     env: {
       allureReuseAfterSpec: true,
     }
-  
-  
 });
