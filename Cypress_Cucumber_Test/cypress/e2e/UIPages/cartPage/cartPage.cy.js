@@ -39,6 +39,11 @@ class Cart {
     cy.get(pageElementLocators.cartPage.continueShoppingButton).click();
     return this;
   }
+
+  clickItemNameInCart() {
+    cy.get(pageElementLocators.CartPageLocators.cartItemName).click();
+  }
+  
 }
 
 const cart = new Cart();

@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735636502410' stop='1735636503411'>
+    <name>API Testing for Login User</name>
+    <title>API Testing for Login User</title>
+    <test-cases>
+        <test-case start='1735636502466' status='passed' stop='1735636502891'>
+            <name>Valid login with user credentials</name>
+            <title>Valid login with user credentials</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735636502925' status='passed' stop='1735636503411'>
+            <name>Invalid login with admin credentials</name>
+            <title>Invalid login with admin credentials</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

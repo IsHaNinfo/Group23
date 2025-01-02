@@ -1,0 +1,50 @@
+
+H:\Group23\Cypress_Cucumber_Test>npx cypress install --force 
+
+Cypress 13.17.0 is installed in C:\Windows\system32\config\systemprofile\AppData\Local\Cypress\Cache\13.17.0
+
+Installing Cypress (version: 13.17.0)
+
+[STARTED] Task without title.
+[FAILED] The Cypress App could not be downloaded.
+[FAILED] 
+[FAILED] Does your workplace require a proxy to be used to access the Internet? If so, you must configure the HTTP_PROXY environment variable before downloading Cypress. Read more: https://on.cypress.io/proxy-configuration
+[FAILED] 
+[FAILED] Otherwise, please check network connectivity and try again:
+[FAILED] 
+[FAILED] ----------
+[FAILED] 
+[FAILED] URL: https://download.cypress.io/desktop/13.17.0?platform=win32&arch=x64
+[FAILED] Error: Corrupted download
+[FAILED] 
+[FAILED] Expected downloaded file to have checksum: 0728805b2205ecba20de043d84acb8ff68057932943ed5a36c6ed5ca481f6f810a51794313412ff72a28e2459d5503f3da128a616c676b9b780d6c533deae253
+[FAILED] Computed checksum: 8cfc081c101542c337ff5528b358306e2284820b9c628e404e710735b60b5654a9682a43662b114e842d06f83b6224da2b8de91d55a4d18ba753a5771efd71a4
+[FAILED] 
+[FAILED] Expected downloaded file to have size: 200616751
+[FAILED] Computed size: 143972570
+[FAILED] 
+[FAILED] ----------
+[FAILED] 
+[FAILED] Platform: win32-x64 (10.0.19045)
+[FAILED] Cypress Version: 13.17.0
+The Cypress App could not be downloaded.
+
+Does your workplace require a proxy to be used to access the Internet? If so, you must configure the HTTP_PROXY environment variable before downloading Cypress. Read more: https://on.cypress.io/proxy-configuration
+
+Otherwise, please check network connectivity and try again:
+
+----------
+
+URL: https://download.cypress.io/desktop/13.17.0?platform=win32&arch=x64
+Error: Corrupted download
+
+Expected downloaded file to have checksum: 0728805b2205ecba20de043d84acb8ff68057932943ed5a36c6ed5ca481f6f810a51794313412ff72a28e2459d5503f3da128a616c676b9b780d6c533deae253
+Computed checksum: 8cfc081c101542c337ff5528b358306e2284820b9c628e404e710735b60b5654a9682a43662b114e842d06f83b6224da2b8de91d55a4d18ba753a5771efd71a4
+
+Expected downloaded file to have size: 200616751
+Computed size: 143972570
+
+----------
+
+Platform: win32-x64 (10.0.19045)
+Cypress Version: 13.17.0

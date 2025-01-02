@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735635211390' stop='1735635216663'>
+    <name>sourceDemo Product Navigation Feature</name>
+    <title>sourceDemo Product Navigation Feature</title>
+    <test-cases>
+        <test-case start='1735635211736' status='passed' stop='1735635216663'>
+            <name>Verify that clicking on an item navigates to the item detail page</name>
+            <title>Verify that clicking on an item navigates to the item detail page</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

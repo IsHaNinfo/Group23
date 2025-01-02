@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735655975138' stop='1735655985410'>
+    <name>sourceDemo Filter Functionality</name>
+    <title>sourceDemo Filter Functionality</title>
+    <test-cases>
+        <test-case start='1735655975495' status='passed' stop='1735655980858'>
+            <name>Verify filtering by Name (A to Z)</name>
+            <title>Verify filtering by Name (A to Z)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735655980877' status='passed' stop='1735655982603'>
+            <name>Verify filtering by Name (Z to A)</name>
+            <title>Verify filtering by Name (Z to A)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735655982626' status='passed' stop='1735655984047'>
+            <name>Verify filtering by Price (Low to High)</name>
+            <title>Verify filtering by Price (Low to High)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1735655984062' status='passed' stop='1735655985410'>
+            <name>Verify filtering by Price (High to Low)</name>
+            <title>Verify filtering by Price (High to Low)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
