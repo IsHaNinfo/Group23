@@ -9,7 +9,7 @@ Feature: API Testing to Delete Books Data
     Then the delete response status should be 200
     And the response should confirm deletion with message "Successfully deleted the book"
 
-  Scenario: Attempt to delete a book with an invalid ID
+  Scenario: Attempt to delete a book with a non-existence ID
     Given user is authenticated as "admin"
     When user sends a DELETE request for the book with ID 9999
     Then the delete response status should be 404
