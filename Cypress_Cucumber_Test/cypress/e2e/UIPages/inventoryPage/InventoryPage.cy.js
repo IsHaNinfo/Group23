@@ -87,6 +87,61 @@ class Inventory {
     cy.url().should("include", urls.inventory);
     return this;
   }
+
+  verifyProductDetailsPage() {
+    cy.url().should("include", "/inventory-item");
+    cy.get(pageElementLocators.itemPage.itemName).should("be.visible");
+  }
+
+  verifyProductNameOnDetailsPage() {
+    cy.get(pageElementLocators.itemPage.itemName)
+      .invoke("text")
+      .then((productName) => {
+        expect(productName).to.eq("Sauce Labs Backpack");
+      });
+  }
+
+  selectFilterOption(filterOption) {
+    cy.get(pageElementLocators.FilterLocators.filterDropdown).select(
+      filterOption
+    );
+  }
+
+  verifyAscendingOrderByName() {
+    cy.get(pageElementLocators.FilterLocators.itemName).then(($elements) => {
+      const names = [...$elements].map((el) => el.innerText);
+      const sortedNames = [...names].sort();
+      expect(names).to.deep.equal(sortedNames);
+    });
+  }
+
+  verifyDescendingOrderByName() {
+    cy.get(pageElementLocators.FilterLocators.itemName).then(($elements) => {
+      const names = [...$elements].map((el) => el.innerText);
+      const sortedNames = [...names].sort().reverse();
+      expect(names).to.deep.equal(sortedNames);
+    });
+  }
+
+  verifyAscendingOrderByPrice() {
+    cy.get(pageElementLocators.FilterLocators.itemPrice).then(($elements) => {
+      const prices = [...$elements].map((el) =>
+        parseFloat(el.innerText.replace("$", ""))
+      );
+      const sortedPrices = [...prices].sort((a, b) => a - b);
+      expect(prices).to.deep.equal(sortedPrices);
+    });
+  }
+
+  verifyDescendingOrderByPrice() {
+    cy.get(pageElementLocators.FilterLocators.itemPrice).then(($elements) => {
+      const prices = [...$elements].map((el) =>
+        parseFloat(el.innerText.replace("$", ""))
+      );
+      const sortedPrices = [...prices].sort((a, b) => b - a);
+      expect(prices).to.deep.equal(sortedPrices);
+    });
+  }
 }
 
 

@@ -43,6 +43,11 @@ class Cart {
     cy.get(pageElementLocators.cartPage.checkoutOverviewCancelButton).click();
     return this;
   }
+
+  clickItemNameInCart() {
+    cy.get(pageElementLocators.CartPageLocators.cartItemName).click();
+  }
+  
 }
 
 const cart = new Cart();

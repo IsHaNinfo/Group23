@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "mocha --reporter mocha-allure-reporter"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "cypress-cucumber": "file:",
-    "cypress-cucumber-preprocessor": "^4.3.1"
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mocha-allure-reporter": "^1.4.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
