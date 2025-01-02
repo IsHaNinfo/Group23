@@ -10,11 +10,11 @@ Given("Visit sourceDemo Website", function () {
     login.visitMainPage()
 });
 
-When("User is logged in and navigate to the inventory page", function () {
+When("User is logged in and on the inventory page", function () {
     login.uname(user.username);
     login.pass(user.password);
     login.LoginButton("");
-    inventory.verifyInventoryPage();
+    login.verifyInventoryPage();
 });
 
 
@@ -22,7 +22,7 @@ And("User adds the first item to the cart", function () {
     inventory.addFirstItemToCart();
 });
 
-And('User clicks on the cart icon in the inventory page', () => {
+And('User clicks on the cart icon', () => {
     inventory.clickCartIcon();
   });
   //bug
@@ -38,7 +38,7 @@ And('User clicks on the cart icon in the inventory page', () => {
     cart.ClickCheckoutButton();
   });
   
-  Then('verify that the user is navigated to the Checkout user_Information page', () => {
+  Then('verifies that the user is navigated to the userInformation page', () => {
     userinfo.navigateUserInformationPage();
   });
 
@@ -54,6 +54,6 @@ And('User clicks on the cart icon in the inventory page', () => {
   And('The user clicks the "Continue" button', () => {
     userinfo.ClickContinueButton();
   });
-  And('Verify that the user is navigated to the Payment Information page', () => {
+  And('Verifies that the user is navigated to the Payment Information page', () => {
     paymentinfo.navigatePaymentInformationPage();
   });

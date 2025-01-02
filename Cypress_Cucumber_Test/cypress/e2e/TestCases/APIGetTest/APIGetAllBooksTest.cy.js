@@ -4,20 +4,14 @@ import Books from '../../API/Books/books.cy';
 
 let response;
 
-Given('a {string} is logged into the service', (role) => {
-  const credentials = {
-    user: { username: 'user', password: 'password' },
-    admin: { username: 'admin', password: 'password' },
-  };
-
-  const { username, password } = credentials[role];
-  login.loginAuth(username, password).then((res) => {
+Given('user is logged into the service', () => {
+  login.loginAuth('user', 'password').then((res) => {
     response = res;
     expect(response.status).to.eq(200); 
   });
 });
 
-When('{string} sends a GET request to retrieve all books', (loggedInUser) => {
+When('user sends a GET request to retrieve all books', () => {
   Books.getAllBooks().then((res) => {
     response = res;
   });

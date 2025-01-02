@@ -1,46 +1,40 @@
 {
-    "LoginPageLocators":{
-    "username_text" :"[data-test='username']",
-    "password_text":"[data-test='password']",
-    "login_button" : "[data-test='login-button']"
+  "LoginPageLocators":{
+  "username_text" :"[data-test='username']",
+  "password_text":"[data-test='password']",
+  "login_button" : "[data-test='login-button']"
+  },
+  "InventoryPageLocators":{
+    "firstInventoryItem": "[data-test='inventory-list'] > :nth-child(1)",
+    "addToCartButton": "[data-test='add-to-cart-sauce-labs-backpack']",
+    "removeButton": "[data-test='remove-sauce-labs-backpack']",
+    "cartIcon": "[data-test='shopping-cart-link']",
+    "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']"
+  },
+  "cartPage": {
+      "checkoutButton": "[data-test='checkout']",
+      "cartItem" : "[data-test='inventory-item']",
+      "removeBtnInCart":"[data-test='remove-sauce-labs-backpack']",
+      "continueShoppingButton":"[data-test='continue-shopping']"
     },
-    "InventoryPageLocators":{
-      "firstInventoryItem": "[data-test='inventory-list'] > :nth-child(1)",
-      "addToCartButton": "[data-test='add-to-cart-sauce-labs-backpack']",
-      "removeButton": "[data-test='remove-sauce-labs-backpack']",
-      "cartIcon": "[data-test='shopping-cart-link']",
-      "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']",
-      "itemImageLink":"[data-test='inventory-item-sauce-labs-backpack-img']"
+    "itemPage":{
+      "itemName":"[data-test='inventory-item-name']"
     },
-    "cartPage": {
-        "checkoutButton": "[data-test='checkout']",
-        "cartItem" : "[data-test='inventory-item']",
-        "removeBtnInCart":"[data-test='remove-sauce-labs-backpack']",
-        "continueShoppingButton":"[data-test='continue-shopping']",
-        "checkoutOverviewCancelButton":"[data-test='cancel']"
-      },
-      "itemPage":{
-        "itemName":"[data-test='inventory-item-name']",
-        "itemImage":"[data-test='item-sauce-labs-backpack-img']",
-        "backToProduct":"[data-test='back-to-products']",
-        "addToCartButton": "[data-test='add-to-cart']",
-        "removeButton":"[data-test='remove']"
-      },
-      "userInformationPage":{
-        "firstName":"[data-test='firstName']",
-        "lastName":"[data-test='lastName']",
-        "postalCode":"[data-test='postalCode']",
-        "continueButton":"[data-test='continue']",
-        "cancelButton":"[data-test='cancel']"
-      },
-      "CartPageLocators": {
-      "cartItemName": "[data-test='inventory-item-name']"
+    "userInformationPage":{
+      "firstName":"[data-test='firstName']",
+      "lastName":"[data-test='lastName']",
+      "postalCode":"[data-test='postalCode']",
+      "continueButton":"[data-test='continue']",
+      "cancelButton":"[data-test='cancel']"
     },
-  
-    "FilterLocators": {
-      "filterDropdown": "[data-test='product-sort-container']",
-      "itemName": ".inventory_item_name",
-      "itemPrice": ".inventory_item_price"
-    }
-       
+    "CartPageLocators": {
+    "cartItemName": "[data-test='inventory-item-name']"
+  },
+
+  "FilterLocators": {
+    "filterDropdown": "[data-test='product-sort-container']",
+    "itemName": ".inventory_item_name",
+    "itemPrice": ".inventory_item_price"
   }
+     
+}

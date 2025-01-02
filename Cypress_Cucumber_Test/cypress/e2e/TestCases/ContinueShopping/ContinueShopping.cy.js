@@ -7,7 +7,7 @@ Given("Visit sourceDemo Website", function () {
     login.visitMainPage()
 });
 
-When("User is logged in and navigate to the inventory page", function () {
+When("User is logged in and on the inventory page", function () {
     login.uname(user.username);
     login.pass(user.password);
     login.LoginButton("");
@@ -19,7 +19,7 @@ And("User adds the first item to the cart", function () {
     inventory.addFirstItemToCart();
 });
 
-And('User clicks on the cart icon in inventory page', () => {
+And('User clicks on the cart icon', () => {
     inventory.clickCartIcon();
   });
 Then('Verify that the cart page is displayed', () => {
@@ -30,7 +30,7 @@ Then('Verify that the cart page is displayed', () => {
     cart.verifyAddedItemInCart();
   });
   
-  And('Verify the "Continue Shopping" icon in the cart page', () => {
+  And('Verify the "Continue Shopping" icon in the checkout page', () => {
     cart.verifyContinueShoppingIcon();
   });
   
@@ -38,6 +38,6 @@ Then('Verify that the cart page is displayed', () => {
     cart.clickContinueShoppingIcon();
   });
 
-  Then('Verify that it should navigate to the inventory page', () => {
+  Then('It should navigate the user back to the dashboard', () => {
     inventory.verifyNavigationToDashboard();
   });

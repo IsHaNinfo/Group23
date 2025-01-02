@@ -1,47 +1,35 @@
-const baseUrl = Cypress.config("baseUrlAPI");
+const baseUrl = Cypress.config('baseUrlAPI');
 
 class Books {
   visitBooksPage() {
-    cy.url().should("eq", `${baseUrl}books`);
+    cy.url().should('eq', `${baseUrl}books`);
   }
 
   getAllBooks() {
-    return cy.request("GET", baseUrl + "/api/books");
+    return cy.request('GET', baseUrl + '/api/books');
   }
 
   getBookById(bookId) {
     return cy.request({
-      method: "GET",
-      url: baseUrl + "/api/books/" + bookId,
-      failOnStatusCode: false,
+        method: 'GET',
+        url: baseUrl + '/api/books/' + bookId,
+        failOnStatusCode: false,
     });
   }
 
   deleteBook(bookId) {
+    return cy.request('DELETE', `${baseUrl}/api/books/${bookId}`);
+  }
+  
+  addBook(bookData,auth) {
     return cy.request({
-      method: "DELETE",
-      url: baseUrl + "/api/books/" + bookId,
-      failOnStatusCode: false,
+      method: 'POST',
+      url: `${baseUrl}/api/books`, 
+      body: bookData, 
+      headers: auth,
+      failOnStatusCode: false, 
     });
   }
-
-  // deleteBook(bookId) {
-  //   return cy.request("DELETE", 
-  //     `${baseUrl}/api/books/${bookId}`);
-  // }
-
-  addBook(bookData) {
-    return cy.request({
-      method: "POST",
-      url: `${baseUrl}/api/books`,
-      body: bookData,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      failOnStatusCode: false,
-    });
-  }
-
   updateBook(bookData,auth) {
     return cy.request({
       method: "PUT",
