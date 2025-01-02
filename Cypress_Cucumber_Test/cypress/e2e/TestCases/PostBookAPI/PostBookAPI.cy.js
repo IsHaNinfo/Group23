@@ -4,32 +4,29 @@ import Books from '../../API/Books/books.cy';
 
 let response;
 
-Given('user is logged into the service', () => {
+Given('user is logged into the system', () => {
   login.loginAuth('user', 'password').then((res) => {
     response = res;
     expect(response.status).to.eq(200); 
   });
 });
-Given('the user sends a POST request to create a new book with the following details:', (dataTable) => {
-  const book = dataTable.hashes()[0]; 
-  const bookData = {
-    id: book.id ? parseInt(book.id, 10) : undefined,  
-    title: book.title.replace(/"/g, ''), 
-    author: book.author.replace(/"/g, ''), 
-  };
 
-  Books.addBook(bookData).then((res) => {
+
+When('the user sends a POST request to create a new book with the following details:', (dataTable) => {
+  const book = dataTable.hashes()[0]; 
+  Books.addBook(book).then((res) => {
     response = res;
   });
+  console.log("www",response)
 });
 
-Then('the response status should be {int} Created', (statusCode) => {
-  expect(response.status).to.eq(statusCode);  
+Then('the response status should be {int}', (statusCode) => {
+  console.log("sss",statusCode)
+  expect(response.status).to.eq(statusCode);
 });
 
-And('the response should contain the book data with title {string} and author {string}', (expectedTitle, expectedAuthor) => {
-
-  console.log(response)
-  expect(response.body.title.trim()).to.eq(expectedTitle.trim());
-expect(response.body.author.trim()).to.eq(expectedAuthor.trim());  
+And('the responses should contain the inserted title and author', (dataTable) => {
+  const expectedData = dataTable.hashes()[0];
+  expect(response.body.title).to.eq(expectedData.title);
+  expect(response.body.author).to.eq(expectedData.author);
 });
