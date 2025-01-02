@@ -1,5 +1,5 @@
 import urls from "../../../support/urls.js";
-const pageElementLocators = require("../pageElements/PageElements.json");
+import pageElementLocators from "../PageElements/PageElements.json"
 
 class Inventory {
     
@@ -132,6 +132,14 @@ class Inventory {
       const sortedPrices = [...prices].sort((a, b) => b - a);
       expect(prices).to.deep.equal(sortedPrices);
     });
+  }
+  clickFirstInventoryItemImage() {
+    cy.get(pageElementLocators.InventoryPageLocators.firstInventoryItem)
+      .first()
+      .within(() => {
+        cy.get(pageElementLocators.InventoryPageLocators.itemImageLink).click(); // Selector for the image
+      });
+    return this;
   }
 }
 
