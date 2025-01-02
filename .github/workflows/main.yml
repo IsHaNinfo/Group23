@@ -1,45 +1,5 @@
 name: End-to-end tests
 
-<<<<<<< HEAD
-on: 
-  push:
-    branches:
-      - ishan
-
-jobs:
-  cypress-e2e:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Checkout the repository
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Step 2: Set up Node.js environment
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # Step 3: Install dependencies
-      - name: Install Dependencies
-        working-directory: ./Group23/Cypress_Cucumber_Test
-        run: npm install
-
-      # Step 4: Run Cypress tests
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./Group23/Cypress_Cucumber_Test
-          command: npm run cy:run
-
-      # Step 5: Generate Allure Report
-      - name: Generate Allure Report
-        working-directory: ./Group23/Cypress_Cucumber_Test
-        run: npm run allure:generate
-
-      # Step 6: Deploy Allure Report to GitHub Pages
-=======
 on: push
 
 permissions:
@@ -141,17 +101,12 @@ jobs:
           gh_pages: allure-history
 
       # Step 13: Deploy Allure Report to GitHub Pages
->>>>>>> dev
       - name: Deploy Allure Report
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-<<<<<<< HEAD
-          publish_dir: ./Group23/Cypress_Cucumber_Test/allure-report
-=======
           publish_dir: allure-history
           user_name: "ishaninfo"
           user_email: "ishaninfo56@gmail.com"
->>>>>>> dev
