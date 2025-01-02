@@ -18,7 +18,9 @@
       "continueShoppingButton":"[data-test='continue-shopping']"
     },
     "itemPage":{
-      "itemName":"[data-test='inventory-item-name']"
+      "itemName": "[data-test='inventory-item-name']",
+      "addToCartButton": "[data-test='add-to-cart']",
+      "removeButton":"[data-test='remove']"
     },
     "userInformationPage":{
       "firstName":"[data-test='firstName']",
