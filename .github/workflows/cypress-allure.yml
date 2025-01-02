@@ -1,0 +1,45 @@
+name: Cypress with Allure Pipeline
+
+on:
+  push:
+    branches:
+      - ishan
+  pull_request:
+    branches:
+      - ishan
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.15
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Run Cypress tests
+      - name: Run Cypress Tests
+        run: npm run cypress:run
+
+      # Step 5: Generate Allure Report
+      - name: Generate Allure Report
+        run: |
+          npm run allure:generate
+          npm run allure:open
+
+      # Step 6: Upload Allure Results as an artifact
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report
