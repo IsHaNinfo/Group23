@@ -133,6 +133,14 @@ class Inventory {
       expect(prices).to.deep.equal(sortedPrices);
     });
   }
+  clickFirstInventoryItemImage() {
+    cy.get(pageElementLocators.InventoryPageLocators.firstInventoryItem)
+      .first()
+      .within(() => {
+        cy.get(pageElementLocators.InventoryPageLocators.itemImageLink).click(); // Selector for the image
+      });
+    return this;
+  }
 }
 
 
