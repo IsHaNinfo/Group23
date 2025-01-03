@@ -13,7 +13,7 @@ When("User provides username", function () {
     login.uname(user.username);
 });
 
-When("User provides password", function () {
+And("User provides password", function () {
     login.pass(user.password);
 });
 

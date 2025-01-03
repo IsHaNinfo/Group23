@@ -30,6 +30,7 @@ class Books {
   // }
   
   addBook(bookData,auth) {
+    console.log("book dataaa",bookData)
     return cy.request({
       method: 'POST',
       url: `${baseUrl}/api/books`, 
