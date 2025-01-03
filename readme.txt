@@ -14,3 +14,5 @@ cd  cypress_Cucumber_Test
 run npm install
 run npx cypress run (for terminal results)
 run npx cypress open (for cypress UI resulrs)
+
+Allure Report : 
