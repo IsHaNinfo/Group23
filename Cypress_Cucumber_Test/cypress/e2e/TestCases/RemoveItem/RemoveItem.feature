@@ -1,14 +1,16 @@
-Feature: sourceDemo RemoveItem Feature
+Feature: Remove option in the inventory page 
 
-    Scenario: Verify Add to Cart and Remove functionality directly from the dashboard
+    Through this feature User should be able to remove a item to the cart
+
+    Scenario: A003- user should be able to login using Valid Credentials and click the add to cart option and remove option in the inventory page 
     Given Visit sourceDemo Website
     When User provide username
     When User provide password
-    Then Click on Login button to log in into the sourceDemo Website
-    And Verify that the user is redirected to the inventory page
-    When User adds the first item to the cart
+    Then Click on Login button to log in to the sourceDemo Website
+    And  Verify that the user is redirected to the inventory page
+    When User click the "Add to cart" option in the inventory page for first item
     Then the "Add to cart" button should change to "Remove"
     And  the cart icon should display an item count 
-    When User click the "Remove" button for the first inventory item
+    When User click the "Remove" button for the first inventory item in the inventory page
     Then the "Remove" button should change back to "Add to cart"
     And  the cart icon should no longer display an item count

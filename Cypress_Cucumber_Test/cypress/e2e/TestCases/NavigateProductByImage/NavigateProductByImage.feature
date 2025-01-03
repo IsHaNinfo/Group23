@@ -1,6 +1,6 @@
 Feature: SauceDemo Product Image Navigation Feature
 
-  Scenario: Verify that clicking on a product image navigates to the item detail page
+  Scenario: A014-Verify that clicking on a product image navigates to the item detail page
     Given Visit sourceDemo Website
     When User provides username
     And User provides password

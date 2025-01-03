@@ -24,8 +24,7 @@ Then("Click on Login button to log in into the sourceDemo Website", function () 
 And("Verify that the user is redirected to the inventory page", function () {
     inventory.verifyInventoryPage();
 });
-//bug click the image not name
-When('User click on the first inventory item', () => {
+When('User click on the first inventory item in the inventory page', () => {
     inventory.clickFirstInventoryItem();
   });
 
@@ -33,6 +32,6 @@ When('User click on the first inventory item', () => {
     inventory.navigateInventoryItemPage()
   });
 
-  And('the item details page should display the item name', () => {
+  And('item name should be displayed in the item details page', () => {
     item.displayItemName()
 });

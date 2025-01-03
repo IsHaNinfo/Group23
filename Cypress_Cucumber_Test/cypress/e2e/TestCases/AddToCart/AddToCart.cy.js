@@ -18,14 +18,14 @@ When("User provide password", function () {
     login.pass(user.password);
 });
 
-Then("Click on Login button to log in into the sourceDemo Website", function () {
+Then("Click on Login button to log in to the sourceDemo Website", function () {
     login.LoginButton("");
 });
 And("Verify that the user is redirected to the inventory page", function () {
     inventory.verifyInventoryPage();
 });
 
-When("User adds the first item to the cart", function () {
+When("User clicks on the add to cart option in the inventory page first item", function () {
     inventory.addFirstItemToCart();
 });
 

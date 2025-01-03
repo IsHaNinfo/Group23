@@ -2,7 +2,7 @@ Feature: sourceDemo Checkout Cancel Button
 
     This feature ensures that the cancel button on the Payment Information page navigates the user back to the inventory dashboard.
 
-    Scenario: User cancels checkout and is redirected to the inventory dashboard
+    Scenario: A016-User cancels checkout and is redirected to the inventory dashboard
     Given Visit sourceDemo Website
     When User provide username
     And User provide password

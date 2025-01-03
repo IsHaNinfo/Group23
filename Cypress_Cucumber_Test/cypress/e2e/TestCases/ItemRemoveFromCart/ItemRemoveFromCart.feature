@@ -2,7 +2,7 @@ Feature: sourceDemo Item Remove from Cart Feature
 
   Through this feature, users should be able to log in to the sourceDemo website, add items to the cart, view the cart, and remove items from the cart.
 
-  Scenario: User should be able to add and remove a specific item from the cart
+  Scenario: A005-User should be able to add and remove a specific item from the cart
     Given Visit sourceDemo Website
     When User is logged in and on the inventory page
     When User adds the first item to the cart

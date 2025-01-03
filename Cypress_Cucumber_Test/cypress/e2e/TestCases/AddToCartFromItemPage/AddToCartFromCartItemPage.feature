@@ -1,6 +1,6 @@
 Feature: Add item to cart on sourceDemo Website
 
-  Scenario: Add item to cart and verify in cart page
+  Scenario: A017-Add item to cart and verify in cart page
     Given Visit sourceDemo Website
     When User provides username
     When User provides password
