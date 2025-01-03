@@ -1,18 +1,32 @@
-Group23 cypress_Cucumber
 
-205082T Ranasingha R.A.A.T
-204183V Samarakkody S.T.R.H.N.
-204022E Batawala N.N.
-205025A Gamage KM
-205099C Sasikala K.G.J
-205004J Ariyarathna P. I. N
+# Cypress Cucumber Test Suite - Group_23_Cypress_Cucumber
 
-Run the source code (both UI & API )
+## Team Members
+- **205082T** Ranasingha R.A.A.T
+- **204183V** Samarakkody S.T.R.H.N.
+- **204022E** Batawala N.N.
+- **205025A** Gamage K.M.
+- **205099C** Sasikala K.G.J.
+- **205004J** Ariyarathna P. I. N
 
-open the terminal
-cd  cypress_Cucumber_Test
-run npm install
-run npx cypress run (for terminal results)
-run npx cypress open (for cypress UI resulrs)
+## Instructions to Run the Tests
 
-Allure Report : 
+1. Open the terminal.
+2. Navigate to the test directory:
+   ```bash
+   cd cypress_Cucumber_Test
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+4. To view results in the terminal:
+   ```bash
+   npx cypress run
+   ```
+5. To open the Cypress UI for results:
+   ```bash
+   npx cypress open
+   ```
+
+
