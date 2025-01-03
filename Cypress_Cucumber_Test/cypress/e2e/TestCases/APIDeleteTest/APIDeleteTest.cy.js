@@ -18,6 +18,17 @@ Given('user is authenticated as {string}', (role) => {
   });
 });
 
+When(
+  "the user sends a POST request to create a new book with the following details:",
+  (dataTable) => {
+    const book = dataTable.hashes()[0];
+    Books.addBook(book).then((res) => {
+      response = res;
+    });
+    console.log("www", response);
+  }
+);
+
 // Step to delete a book by ID
 When('user sends a DELETE request for the book with ID {int}', (bookId) => {
   cy.get('@authToken').then((token) => {
