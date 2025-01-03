@@ -13,10 +13,11 @@ cypress-cucumber/node_modules
 
 # testing
 /coverage
-
+/demo-backend
 # next.js
 /.next/
 /out/
+
 
 # production
 /build

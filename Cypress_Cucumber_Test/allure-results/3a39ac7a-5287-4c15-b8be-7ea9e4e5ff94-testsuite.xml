@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1735790342036' stop='1735790344271'>
+    <name>API Testing to Retrieve Book Details</name>
+    <title>API Testing to Retrieve Book Details</title>
+    <test-cases>
+        <test-case start='1735790342113' status='failed' stop='1735790343623'>
+            <name>Successfully retrieve a book by valid ID</name>
+            <title>Successfully retrieve a book by valid ID</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>expected 404 to equal 200</message>
+                <stack-trace>AssertionError: expected 404 to equal 200
+                    at Context.eval (cypress/e2e/TestCases/APIGetTest/APIGetBookByIdTest.cy.js:22:29)
+                    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)
+                    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1735790343801' status='passed' stop='1735790344270'>
+            <name>Attempt to retrieve a book with an invalid ID</name>
+            <title>Attempt to retrieve a book with an invalid ID</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

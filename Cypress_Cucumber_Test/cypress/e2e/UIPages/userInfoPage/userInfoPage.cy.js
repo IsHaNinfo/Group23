@@ -1,4 +1,4 @@
-const pageElementLocators = require("../pageElements/PageElements.json");
+import pageElementLocators from "../PageElements/PageElements.json"
 import urls from "../../../support/urls.js";
 
 class UserInfoPage {
@@ -31,6 +31,11 @@ navigateUserInformationPage() {
 
   ClickContinueButton() {
     cy.get(pageElementLocators.userInformationPage.continueButton).click();
+    return;
+  }
+
+  ClickCancelButton() {
+    cy.get(pageElementLocators.userInformationPage.cancelButton).click();
     return;
   }
 

@@ -4,8 +4,17 @@ class Books {
   visitBooksPage() {
     cy.url().should('eq', `${baseUrl}books`);
   }
-  getBooks() {
-    return cy.request('GET', `${baseUrl}/api/books`);
+
+  getAllBooks() {
+    return cy.request('GET', baseUrl + '/api/books');
+  }
+
+  getBookById(bookId) {
+    return cy.request({
+        method: 'GET',
+        url: baseUrl + '/api/books/' + bookId,
+        failOnStatusCode: false,
+    });
   }
 
   deleteBook(bookId, token) {
@@ -20,19 +29,28 @@ class Books {
   
 }
   
-  addBook(bookData) {
+  addBook(bookData,auth) {
     return cy.request({
       method: 'POST',
       url: `${baseUrl}/api/books`, 
       body: bookData, 
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: auth,
       failOnStatusCode: false, 
     });
   }
-
-
+  updateBook(bookData,auth) {
+    return cy.request({
+      method: "PUT",
+    url: `${baseUrl}/api/books/${bookData.id}`,
+    headers: auth,
+    failOnStatusCode: false,
+    body: {
+      id: parseInt(bookData.id),
+      title: bookData.title,
+      author: bookData.author,
+    },
+    });
+  }
 }
 
 const books = new Books();
