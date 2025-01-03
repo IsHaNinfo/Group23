@@ -10,19 +10,16 @@ Given('user is logged into the service', () => {
   });
 });
 
-Given('user sends a POST request to add the following book:', (dataTable) => {
-  const books = dataTable.hashes().map((row) => ({
-    id: row.id ? parseInt(row.id) : undefined, // Convert id to an integer if provided
-    title: row.title ? row.title.replace(/"/g, '') : '', // Handle empty title
-    author: row.author.replace(/"/g, '') // Remove quotes from the author
-  }));
-
-  Books.addBook(books[0]).then((res) => {
-    response = res;
-  });
+Given('user sends a POST request to add the following book with invalid author:', (dataTable) => {
+  console.log("dataTable",dataTable)
+    const book = dataTable.hashes()[0];
+    Books.addBook(book).then((res) => {
+      response = res;
+    });
 });
 
-Then('the insert response status should be {int}', (statusCode) => {
+Then('the insert response status for Invalid Input test should be {int}', (statusCode) => {
   expect(response.status).to.eq(statusCode);
 });
+
 

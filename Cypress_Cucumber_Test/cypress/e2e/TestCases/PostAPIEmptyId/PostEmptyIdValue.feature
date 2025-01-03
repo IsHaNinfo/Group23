@@ -6,5 +6,5 @@ Feature: API Testing to Insert Empty Id Value with Books Data
   Scenario: Insert Empty value for id
     When the user sends a POST request to create a new book with empty id:
   | id | title   | author  |
-  |    | "NewBook" | "Newauthor"  |
-    Then the insert response status should be 201
+  |    | MadolDuuwa | M.Wickramasinghe  |
+    Then the insert response status for Empty Id should be 201
