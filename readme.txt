@@ -1,4 +1,5 @@
 
+```markdown
 # Cypress Cucumber Test Suite - Group_23_Cypress_Cucumber
 
 ## Team Members
@@ -18,18 +19,18 @@
    cd cypress_Cucumber_Test
    ```
 
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
-
-4. To view results in the terminal:
-   ```bash
-   npx cypress run
-   ```
-
-5. To open the Cypress UI for results:
-   ```bash
-   npx cypress open
-   ```
+3. Install dependencies and run tests:
+   - To install the dependencies:
+     ```bash
+     npm install
+     ```
+   - To view results in the terminal:
+     ```bash
+     npx cypress run
+     ```
+   - To open the Cypress UI for results:
+     ```bash
+     npx cypress open
+     ```
 ```
+
