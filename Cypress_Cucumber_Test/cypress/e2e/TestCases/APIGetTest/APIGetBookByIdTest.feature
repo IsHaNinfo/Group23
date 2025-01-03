@@ -1,6 +1,6 @@
 Feature: API Testing to Retrieve Book Details
 
-Scenario: Admin retrieves a book by ID
+Scenario: A035-Admin retrieves a book by ID
   Given a "admin" is logged into the service
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
@@ -9,7 +9,7 @@ Scenario: Admin retrieves a book by ID
   Then the GET response status should 200
   And the response should contain the book data with ID 1
 
-Scenario: User retrieves a book by ID
+Scenario: A036-User retrieves a book by ID
   Given a "user" is logged into the service
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
@@ -18,7 +18,7 @@ Scenario: User retrieves a book by ID
   Then the GET response status should 200
   And the response should contain the book data with ID 1
 
-Scenario: Admin retrieves a non-existent book
+Scenario: A037-Admin retrieves a non-existent book
   Given a "admin" is logged into the service
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
@@ -27,7 +27,7 @@ Scenario: Admin retrieves a non-existent book
   Then the GET response status should 404
   And the response should contain the error message "Book not found"
 
-Scenario: User retrieves a non-existent book
+Scenario: A038-User retrieves a non-existent book
   Given a "user" is logged into the service
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |

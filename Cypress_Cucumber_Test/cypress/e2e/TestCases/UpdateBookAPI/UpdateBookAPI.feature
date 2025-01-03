@@ -1,7 +1,7 @@
 Feature: API Testing to Update Books Data
 
 
-  Scenario: Successfully updating a book's title and author
+  Scenario: A039-Successfully updating a book's title and author
     Given user is authenticated as "admin"
     When user post book details with ID 5
     When the user sends update to following details:
@@ -12,7 +12,7 @@ Feature: API Testing to Update Books Data
       | id | title       | author       |
       | 5  | New Title 1 | New Author 1 |
 
-  Scenario: User is not authenticated when updating a book
+  Scenario: A040-User is not authenticated when updating a book
     Given user is not authenticated as "user"
     When user post book details with ID 6
     When the user sends update to following details:
@@ -21,7 +21,7 @@ Feature: API Testing to Update Books Data
     Then the response status should be 401 status
     And the response body show "Unauthorized"
 
-  Scenario: Updating book with missing values
+  Scenario: A041-Updating book with missing values
     Given user is authenticated as "admin"
     When user post book details with ID 7
     When the user sends update to following details:

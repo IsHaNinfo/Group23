@@ -1,6 +1,6 @@
 Feature: API Testing to Retrieve All Books
 
-  Scenario: Retrieve a list of books as a user
+  Scenario: A033-Retrieve a list of books as a user
     Given a "user" is logged into the service
     When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
@@ -9,7 +9,7 @@ Feature: API Testing to Retrieve All Books
     Then the GET response status code should be 200
     And the response should contain a list of books
 
-  Scenario: Retrieve a list of books as an admin
+  Scenario: A034-Retrieve a list of books as an admin
     Given a "admin" is logged into the service
     When the "admin" sends a POST request to create a new book with the following details:
       | id | title       | author       |

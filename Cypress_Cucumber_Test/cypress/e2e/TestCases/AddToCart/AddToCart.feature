@@ -2,7 +2,7 @@
 Feature: Add to Cart Feature in inventory page
 
     Through this feature User should be able to add a item to the cart
-    Scenario: user should be able to login using Valid Credentials and click on the add to cart option of the inventory page
+    Scenario: A002- user should be able to login using Valid Credentials and click on the add to cart option of the inventory page
     Given Visit sourceDemo Website
     When User provide username
     When User provide password

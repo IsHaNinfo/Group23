@@ -9,7 +9,7 @@ Feature: sourceDemo Filter Functionality
         Then Click on Login button to log in into the sourceDemo Website
         And Verify that the user is redirected to the inventory page
 
-    Scenario: Verify filtering by Name (A to Z)
+    Scenario: A009-Verify filtering by Name (A to Z)
         When User selects the filter option "Name (A to Z)"
         Then The items should be displayed in ascending order by name
 

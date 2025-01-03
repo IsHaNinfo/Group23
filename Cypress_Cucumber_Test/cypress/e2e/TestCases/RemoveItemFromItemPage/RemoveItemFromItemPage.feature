@@ -1,6 +1,6 @@
 Feature: Remove item from cart on sourceDemo Website
 
-  Scenario: Add item to cart and then remove it to test if the button changes back to add to cart
+  Scenario: A018-Add item to cart and then remove it to test if the button changes back to add to cart
     Given Visit sourceDemo Website
     When User provides username
     And User provides password
@@ -13,7 +13,7 @@ Feature: Remove item from cart on sourceDemo Website
     And User clicks on remove button
     Then the Remove button should change back to Add to cart
 
-  Scenario: Add item to cart and then remove it to test if the item is removed from cart
+  Scenario: A019-Add item to cart and then remove it to test if the item is removed from cart
     Given Visit sourceDemo Website
     When User provides username
     And User provides password

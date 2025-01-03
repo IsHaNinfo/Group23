@@ -1,6 +1,6 @@
 Feature: Navigates to the item details page
 
-    Scenario: User should log in to the system and Verify that when clicking on an item name it navigates to the item detail page
+    Scenario: A004-User should log in to the system and Verify that when clicking on an item name it navigates to the item detail page
     Given Visit sourceDemo Website
     When User provide username
     When User provide password

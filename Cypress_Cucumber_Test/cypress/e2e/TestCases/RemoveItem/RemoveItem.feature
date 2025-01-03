@@ -1,6 +1,8 @@
+Feature: Remove option in the inventory page 
 
-    Feature: Remove option in the inventory page 
-    Scenario: user should be able to login using Valid Credentials and click the add to cart option and remove option in the inventory page 
+    Through this feature User should be able to remove a item to the cart
+
+    Scenario: A003- user should be able to login using Valid Credentials and click the add to cart option and remove option in the inventory page 
     Given Visit sourceDemo Website
     When User provide username
     When User provide password

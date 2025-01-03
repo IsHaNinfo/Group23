@@ -1,6 +1,6 @@
 Feature: sourceDemo Product Navigation Feature
 
-    Scenario: Verify the "Back to products" option on the item's new page
+    Scenario: A015-Verify the "Back to products" option on the item's new page
     Given Visit sourceDemo Website
     When User provide username
     When User provide password
