@@ -91,7 +91,14 @@ jobs:
         with:
           ref: gh-pages
           path: allure-history
-
+      
+      - name:  Clean Allure Report Directory
+        if: always()
+        run: |
+          rm -rf Cypress_Cucumber_Test/allure-results
+          rm -rf allure-history
+          mkdir -p allure-history
+          
       # Step 12: Generate Allure Report
       - name: Generate Allure Report
         if: always()
