@@ -10,7 +10,8 @@
     "removeButton": "[data-test='remove-sauce-labs-backpack']",
     "cartIcon": "[data-test='shopping-cart-link']",
     "itemTitleLink":"[data-test='item-4-title-link'] > [data-test='inventory-item-name']",
-      "itemImageLink":"[data-test='inventory-item-sauce-labs-backpack-img']"
+    "itemImageLink":"[data-test='inventory-item-sauce-labs-backpack-img']",
+    "allItemsLink": "[data-test='inventory-sidebar-link']"
   },
   "cartPage": {
       "checkoutButton": "[data-test='checkout']",
@@ -27,10 +28,19 @@
         "addToCartButton": "[data-test='add-to-cart']",
         "removeButton":"[data-test='remove']"
           },
+  
     "userInformationPage":{
       "firstName":"[data-test='firstName']",
       "lastName":"[data-test='lastName']",
       "postalCode":"[data-test='postalCode']",
+      "continueButton":"[data-test='continue']"
+    },
+    "paymentPage": {
+      "finishButton": "[data-test='finish']"
+    },
+    "checkoutCompletePage": {
+      "header": "[data-test='complete-header']",
+      "backHomeButton": "[data-test='back-to-products']"
       "continueButton":"[data-test='continue']",
       "cancelButton":"[data-test='cancel']"
     },
@@ -43,5 +53,4 @@
     "itemName": ".inventory_item_name",
     "itemPrice": ".inventory_item_price"
   }
-     
-}
+

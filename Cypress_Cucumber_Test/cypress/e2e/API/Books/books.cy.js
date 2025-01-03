@@ -17,9 +17,17 @@ class Books {
     });
   }
 
-  deleteBook(bookId) {
-    return cy.request('DELETE', `${baseUrl}/api/books/${bookId}`);
-  }
+  deleteBook(bookId, token) {
+    return cy.request({
+      method: 'DELETE',
+      url: `${baseUrl}/api/books/${bookId}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      failOnStatusCode: false,  
+    });
+  
+}
   
   addBook(bookData,auth) {
     return cy.request({

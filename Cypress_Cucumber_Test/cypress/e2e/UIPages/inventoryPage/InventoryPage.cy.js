@@ -70,12 +70,7 @@ class Inventory {
   }
 
   navigateInventoryItemPage() {
-    cy.url().should("include", urls.inventory_item);
-    return this;
-  }
-
-  verifyNavigationToDashboard() {
-    cy.url().should("include", urls.inventory);
+    cy.url().should("include", urls.inventory_item); 
     return this;
   }
 
@@ -142,6 +137,20 @@ class Inventory {
     return this;
   }
 }
+
+  clickMenuIcon() {
+    cy.get('.bm-burger-button > button')  
+      .should('be.visible')
+      .click();
+    return this;
+  }
+
+
+  clickAllItemsLink() {
+    cy.get(pageElementLocators.InventoryPageLocators.allItemsLink)  
+      .click();  
+    return this;
+  }
 
 
 const inventory = new Inventory();
