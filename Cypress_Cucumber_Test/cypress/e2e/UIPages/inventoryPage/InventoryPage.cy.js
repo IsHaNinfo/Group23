@@ -141,6 +141,20 @@ class Inventory {
       });
     return this;
   }
+
+  clickMenuIcon() {
+    cy.get('.bm-burger-button > button')  
+      .should('be.visible')
+      .click();
+    return this;
+  }
+
+
+  clickAllItemsLink() {
+    cy.get(pageElementLocators.InventoryPageLocators.allItemsLink)  
+      .click();  
+    return this;
+  }
 }
 
 
