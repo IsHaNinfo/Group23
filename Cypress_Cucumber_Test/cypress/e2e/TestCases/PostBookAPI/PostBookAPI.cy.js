@@ -17,7 +17,7 @@ Given("user is authenticated as {string}", (role) => {
 });
 
 When(
-  "the user sends a POST request to create a new book with the following details:",
+  "the user makes a POST request to create a new book using the provided details:",
   (dataTable) => {
     const book = dataTable.hashes()[0];
     Books.addBook(book).then((res) => {
@@ -27,8 +27,9 @@ When(
   }
 );
 
-Then("the response status should be {int}", (statusCode) => {
+Then("the response status should  {int}", (statusCode) => {
   console.log("sss", statusCode);
+  console.log("nne",response)
   expect(response.status).to.eq(statusCode);
 });
 
