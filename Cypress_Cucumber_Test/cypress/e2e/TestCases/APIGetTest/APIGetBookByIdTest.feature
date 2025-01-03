@@ -5,18 +5,18 @@ Scenario: A035-Admin retrieves a book by ID
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
       | 13  | New Title | New Author |
-  When "admin" sends a GET request to retrieve a book with ID 1
+  When "admin" sends a GET request to retrieve a book with ID 13
   Then the GET response status should 200
-  And the response should contain the book data with ID 1
+  And the response should contain the book data with ID 13
 
 Scenario: A036-User retrieves a book by ID
   Given a "user" is logged into the service
   When the "user" sends a POST request to create a new book with the following details:
       | id | title       | author       |
       | 14  | New Title | New Author |
-  When "user" sends a GET request to retrieve a book with ID 1
+  When "user" sends a GET request to retrieve a book with ID 14
   Then the GET response status should 200
-  And the response should contain the book data with ID 1
+  And the response should contain the book data with ID 14
 
 Scenario: A037-Admin retrieves a non-existent book
   Given a "admin" is logged into the service
