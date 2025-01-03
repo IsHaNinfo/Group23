@@ -27,7 +27,7 @@ When(
   }
 );
 
-Then("the response status should  {int}", (statusCode) => {
+Then("the response status should be {int}", (statusCode) => {
   console.log("sss", statusCode);
   console.log("nne",response)
   expect(response.status).to.eq(statusCode);
