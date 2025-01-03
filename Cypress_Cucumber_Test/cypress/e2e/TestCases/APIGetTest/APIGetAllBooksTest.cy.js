@@ -4,21 +4,38 @@ import Books from '../../API/Books/books.cy';
 
 let response;
 
-Given('user is logged into the service', () => {
-  login.loginAuth('user', 'password').then((res) => {
+Given('a {string} is logged into the service', (role) => {
+  const credentials = {
+    user: { username: 'user', password: 'password' },
+    admin: { username: 'admin', password: 'password' },
+  };
+
+  const { username, password } = credentials[role];
+  login.loginAuth(username, password).then((res) => {
     response = res;
     expect(response.status).to.eq(200); 
   });
 });
 
-When('user sends a GET request to retrieve all books', () => {
+When(
+  "the {string} sends a POST request to create a new book with the following details:",
+  (loggedInUser, dataTable) => {
+    const book = dataTable.hashes()[0];
+    Books.addBook(book).then((res) => {
+      response = res;
+    });
+    console.log("www", response);
+  }
+);
+
+When('{string} sends a GET request to retrieve all books', (loggedInUser) => {
   Books.getAllBooks().then((res) => {
     response = res;
   });
 });
 
-Then('the response status should be {int}', (statusCode) => {
-  //expect(response.status).to.eq(statusCode);
+Then("the GET response status code should be {int}", (statusCode) => {
+  expect(response.status).to.eq(statusCode);
 });
 
 And('the response should contain a list of books', () => {

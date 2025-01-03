@@ -2,7 +2,6 @@ import  login  from "../../UIPages/LoginPage/LoginPage.cy.js";
 import  inventory  from "../../UIPages/inventoryPage/InventoryPage.cy.js";
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import user from "../../../fixtures/user.json"
-import urls from "../../../support/urls.js";
 
 Given("Visit sourceDemo Website", function () {
     login.visitMainPage()
