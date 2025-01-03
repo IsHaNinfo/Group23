@@ -31,7 +31,9 @@ class Books {
       method: 'POST',
       url: `${baseUrl}/api/books`, 
       body: bookData, 
-      headers: auth,
+      headers: {
+        "Content-Type": "application/json"
+      },
       failOnStatusCode: false, 
     });
   }

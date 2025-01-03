@@ -14,11 +14,11 @@ Feature: API Testing to Insert Books Data
     Given user is authenticated as "user"
     When the user makes a POST request to create a new book using the provided details:
       | id | title       | author       |
-      | 2  | User Title | User Author |
+      | 2  | UserTitle | User Author |
     Then the response status should be 201
     And the responses should contain the inserted title and author
       | id | title       | author       |
-      | 2  | User Title | User Author |
+      | 2  | UserTitle | User Author |
 
   Scenario: A030-User Adding book with missing data
     Given user is authenticated as "user"
