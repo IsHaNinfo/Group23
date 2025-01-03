@@ -24,7 +24,7 @@ class Books {
         failOnStatusCode: false,
     });
   }
-  
+
   addBook(bookData,auth) {
     console.log("book dataaa",bookData)
     return cy.request({
