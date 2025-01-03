@@ -18,9 +18,13 @@ class Books {
   }
 
   deleteBook(bookId) {
-    return cy.request('DELETE', `${baseUrl}/api/books/${bookId}`);
+    return cy.request({
+      method: 'DELETE',
+      url: `${baseUrl}/api/books/${bookId}`,
+      failOnStatusCode: false, 
+    });
   }
-  
+
   addBook(bookData,auth) {
     return cy.request({
       method: 'POST',
