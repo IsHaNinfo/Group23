@@ -7,7 +7,7 @@ let response;
 // Background step
 Given('user is logged into the service', () => {
   login.loginAuth('admin', 'password').then((res) => {
-    cy.wrap(res.body.token).as('authToken'); // Save the auth token for future use
+    cy.wrap(res.body.token).as('authToken'); 
   });
 });
 
