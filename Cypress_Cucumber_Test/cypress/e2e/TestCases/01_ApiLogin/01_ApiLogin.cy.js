@@ -5,7 +5,6 @@ let credentials = {};
 let response;
 
 Given('I have valid user credentials {string} and {string}', (username, password) => {
-  console.log("www",username)
   credentials = { username, password };
 });
 

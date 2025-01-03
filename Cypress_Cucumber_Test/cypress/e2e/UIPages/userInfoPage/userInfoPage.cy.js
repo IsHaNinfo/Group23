@@ -1,10 +1,8 @@
-import pageElementLocators from "../PageElements/PageElements.json"
+import pageElementLocators from "../PageElements/PageElements.json";
 import urls from "../../../support/urls.js";
 
 class UserInfoPage {
-
-
-navigateUserInformationPage() {
+  navigateUserInformationPage() {
     cy.url().should("include", urls.userInfo);
     return this;
   }
@@ -38,7 +36,6 @@ navigateUserInformationPage() {
     cy.get(pageElementLocators.userInformationPage.cancelButton).click();
     return;
   }
-
 }
 
 const userinfo = new UserInfoPage();

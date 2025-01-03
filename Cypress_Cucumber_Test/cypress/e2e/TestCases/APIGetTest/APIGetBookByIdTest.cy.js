@@ -24,7 +24,6 @@ When(
     Books.addBook(book).then((res) => {
       response = res;
     });
-    console.log("www", response);
   }
 );
 

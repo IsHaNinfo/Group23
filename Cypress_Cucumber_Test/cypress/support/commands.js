@@ -23,14 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add('login', (username, password) => {
-    cy.visit('https://www.saucedemo.com/');
-
-    cy.get('input[name="user-name"]').type(username);
-    cy.get('input[name="password"]').type(password);
-    cy.get('input[type="submit"]').click();
-
-    cy.url().should('include', '/inventory.html');
-    cy.get('.header_label').should('be.visible').and('contain.text', 'Swag Labs');
-});
