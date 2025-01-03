@@ -24,10 +24,6 @@ class Books {
         failOnStatusCode: false,
     });
   }
-
-  // deleteBook(bookId) {
-  //   return cy.request('DELETE', `${baseUrl}/api/books/${bookId}`);
-  // }
   
   addBook(bookData,auth) {
     console.log("book dataaa",bookData)
