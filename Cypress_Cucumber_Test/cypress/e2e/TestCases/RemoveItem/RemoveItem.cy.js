@@ -24,7 +24,7 @@ Given("Visit sourceDemo Website", function () {
     inventory.verifyInventoryPage();
   });
   
-  When("User adds the first item to the cart", function () {
+  When('User click the "Add to cart" option in the inventory page for first item', function () {
     inventory.addFirstItemToCart();
   });
   
@@ -36,7 +36,7 @@ Given("Visit sourceDemo Website", function () {
         inventory.verifyCartIconCount();
     });
     
-    When('User click the "Remove" button for the first inventory item', () => {
+    When('User click the "Remove" button for the first inventory item in the inventory page', () => {
         inventory.removeFirstItemFromCart();
     });
     
