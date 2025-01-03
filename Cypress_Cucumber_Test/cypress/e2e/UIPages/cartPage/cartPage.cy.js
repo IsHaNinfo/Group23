@@ -1,6 +1,5 @@
 import urls from "../../../support/urls.js";
-const pageElementLocators = require("../pageElements/PageElements.json");
-
+import pageElementLocators from "../PageElements/PageElements.json"
 class Cart {
   verifyCartPage() {
     cy.url().should("include", urls.cart);
@@ -39,6 +38,10 @@ class Cart {
     cy.get(pageElementLocators.cartPage.continueShoppingButton).click();
     return this;
   }
+
+  clickItemNameInCart() {
+    cy.get(pageElementLocators.CartPageLocators.cartItemName).click();
+  }
   clickCancelButton() {
     cy.get(pageElementLocators.cartPage.checkoutOverviewCancelButton).click();
     return this;
@@ -47,7 +50,6 @@ class Cart {
   clickItemNameInCart() {
     cy.get(pageElementLocators.CartPageLocators.cartItemName).click();
   }
-  
 }
 
 const cart = new Cart();

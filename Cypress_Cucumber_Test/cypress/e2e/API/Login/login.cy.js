@@ -1,4 +1,4 @@
-const baseUrl = Cypress.config('baseUrlAPI');
+const baseUrl = Cypress.config("baseUrlAPI");
 
 class Login {
   /**
@@ -8,14 +8,14 @@ class Login {
    * @returns {Cypress.Chainable} - The response of the POST request
    */
   loginAuth(username, password) {
-    const authHeader = `Basic ${btoa(username + ':' + password)}`; // Create Basic Auth header
+    const authHeader = `Basic ${btoa(username + ":" + password)}`; // Create Basic Auth header
 
     return cy.request({
-      method: 'OPTIONS', // Adjust this method based on your API
+      method: "OPTIONS", // Adjust this method based on your API
       url: `${baseUrl}`, // Adjust the URL if necessary
       headers: {
         Authorization: authHeader,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       failOnStatusCode: false, // Continue even if the status code is not 2xx
     });
