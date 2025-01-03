@@ -35,7 +35,7 @@ class Books {
       url: `${baseUrl}/api/books`, 
       body: bookData, 
       headers: auth,
-      failOnStatusCode: false, 
+      // failOnStatusCode: false, 
     });
   }
   updateBook(bookData,auth) {
